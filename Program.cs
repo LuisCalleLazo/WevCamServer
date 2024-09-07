@@ -44,11 +44,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRouting();
-app.UseSession();
 app.UseCors(MyAllowSpecificOrigins);
  
-app.UseAuthentication();
-app.UseAuthorization();
+// app.UseAuthentication();
+// app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

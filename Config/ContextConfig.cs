@@ -17,14 +17,14 @@ namespace WebCamServer.Config
       });
 
 
-      // services.AddDistributedMemoryCache(); // Agrega caché en memoria para las sesiones
+      services.AddDistributedMemoryCache(); // Agrega caché en memoria para las sesiones
 
-      // services.AddSession(options =>
-      // {
-      //   options.IdleTimeout = TimeSpan.FromMinutes(30); // Tiempo que las sesiones permanecen activas
-      //   options.Cookie.HttpOnly = true;
-      //   options.Cookie.IsEssential = true;
-      // });
+      services.AddSession(options =>
+      {
+        options.IdleTimeout = TimeSpan.FromMinutes(30); // Tiempo que las sesiones permanecen activas
+        options.Cookie.HttpOnly = true;
+        options.Cookie.IsEssential = true;
+      });
     }
   }
 }
