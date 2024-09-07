@@ -15,6 +15,7 @@ namespace WebCamServer.Models
     public string DadLastName { get; set; }
     public string MomLastName { get; set; }
     public int Age { get; set; }
+    public string[] Photo { get; set; }
     public string Email { get; set; }
     public string City { get; set; }
     public string Password { get; set; } 
