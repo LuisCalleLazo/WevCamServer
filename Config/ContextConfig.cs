@@ -1,5 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using WebCamServer.Database;
+
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
+using WebCamServer.Helpers;
 
 namespace WebCamServer.Config
 {
@@ -7,14 +9,13 @@ namespace WebCamServer.Config
   {
     public static void ConfigureContext(this IServiceCollection services, WebApplicationBuilder builder)
     {
-
-      string host = builder.Configuration.GetConnectionString("MongoHost");
-      string db = builder.Configuration.GetConnectionString("MongoDb");
-      
-      services.AddDbContext<DataContext>(options => 
+      services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+      services.AddSingleton<IMongoClient, MongoClient>(sp => 
       {
-        options.UseMongoDB(host, db);
+        var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
+        return new MongoClient(settings.ConnectionString);
       });
+
 
       // services.AddDistributedMemoryCache(); // Agrega caché en memoria para las sesiones
 

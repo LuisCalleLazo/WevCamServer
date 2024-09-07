@@ -1,8 +1,14 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using WebCamServer.Models.Templates;
+
 namespace WebCamServer.Models
 {
-  public class User
+  public class User : HistoryModel
   {
-    public int Id { get; set; }
+    [BsonId]
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string Id { get; set; }
     public string Name { get; set; }
     public string DadFirstName { get; set; }
     public string MomFirstName { get; set; }
