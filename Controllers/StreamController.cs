@@ -1,43 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.WebSockets;
+using WebCamServer.Services.Interfaces;
 
-[Route("api/stream")]
+[Route("stream")]
 [ApiController]
 public class StreamController : ControllerBase
 {
+  private readonly ICameraService _camServ;
+
+  public StreamController(ICameraService camServ)
+  {
+    _camServ = camServ;
+  }
+
+
   [HttpGet("camera")]
   public async Task WsCamera()
   {
     if (HttpContext.WebSockets.IsWebSocketRequest)
     {
       WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-      await HandleWebSocketConnection(webSocket);
+      await _camServ.HandleWebSocketConnection(webSocket);
     }
     else
     {
       HttpContext.Response.StatusCode = 400; // Bad Request
     }
-  }
-
-  private async Task HandleWebSocketConnection(WebSocket webSocket)
-  {
-    var buffer = new byte[1024 * 4];
-
-    while (webSocket.State == WebSocketState.Open)
-    {
-      var result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-      if (result.MessageType == WebSocketMessageType.Close)
-      {
-        Console.WriteLine("Se cerro la conexion");
-        await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
-      }
-      else
-      {
-        Console.WriteLine("Se envio el mensaje");
-        await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
-      }
-    }
-    
   }
   
   [HttpGet("controls")]
@@ -46,7 +34,7 @@ public class StreamController : ControllerBase
     if (HttpContext.WebSockets.IsWebSocketRequest)
     {
       WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-      await HandleWebSocketConnection(webSocket);
+      // await HandleWebSocketConnection(webSocket);
     }
     else
     {
