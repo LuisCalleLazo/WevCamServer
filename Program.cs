@@ -43,6 +43,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseWebSockets();;
+
 app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
  
