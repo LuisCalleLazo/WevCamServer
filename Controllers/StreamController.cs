@@ -7,38 +7,54 @@ using WebCamServer.Services.Interfaces;
 public class StreamController : ControllerBase
 {
   private readonly ICameraService _camServ;
+  private readonly IControlsService _conServ;
 
-  public StreamController(ICameraService camServ)
+  public StreamController(ICameraService camServ, IControlsService conServ)
   {
     _camServ = camServ;
+    _conServ = conServ;
   }
 
 
-  [HttpGet("camera")]
-  public async Task WsCamera()
+  [HttpGet("camera/esp32-cam")]
+  public async Task WsEsp32Camera()
   {
     if (HttpContext.WebSockets.IsWebSocketRequest)
     {
       WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-      await _camServ.HandleWebSocketConnection(webSocket);
+      await _camServ.Esp32CamConnection(webSocket);
     }
     else
     {
-      HttpContext.Response.StatusCode = 400; // Bad Request
+      HttpContext.Response.StatusCode = 400;
     }
   }
   
-  [HttpGet("controls")]
+  [HttpGet("camera/watch")]
+  public async Task WsWatchCamera()
+  {
+    if (HttpContext.WebSockets.IsWebSocketRequest)
+    {
+      WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
+      await _camServ.WatchCamera(webSocket);
+    }
+    else
+    {
+      HttpContext.Response.StatusCode = 400;
+    }
+  }
+  
+  [HttpGet("controls-camera")]
   public async Task WsControls()
   {
     if (HttpContext.WebSockets.IsWebSocketRequest)
     {
       WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-      // await HandleWebSocketConnection(webSocket);
+      await _conServ.ControlsOfCamera(webSocket);
     }
     else
     {
-      HttpContext.Response.StatusCode = 400; // Bad Request
+      HttpContext.Response.StatusCode = 400;
     }
   }
 }

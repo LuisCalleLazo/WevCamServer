@@ -4,6 +4,7 @@ namespace WebCamServer.Services.Interfaces
 {
   public interface ICameraService
   {
-    Task HandleWebSocketConnection(WebSocket webSocket);
+    Task Esp32CamConnection(WebSocket webSocket);
+    Task WatchCamera(WebSocket webSocket);
   }
 }
