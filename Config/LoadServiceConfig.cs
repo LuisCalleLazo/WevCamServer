@@ -1,7 +1,7 @@
 
 
-
 using WebCamServer.Repositories;
+using WebCamServer.Repositories.Interfaces;
 using WebCamServer.Services;
 using WebCamServer.Services.Interfaces;
 
@@ -11,7 +11,12 @@ namespace WebCamServer.Config
   {
     public static void LoadRepositories(IServiceCollection services)
     {
-      services.AddScoped<UserRepository>();
+      services.AddScoped<IUserRepository, UserRepository>();
+      services.AddScoped<ITokenRepository, TokenRepository>();
+      services.AddScoped<ICameraRepository, CameraRepository>();
+      services.AddScoped<ICameraHomeRepository, CameraHomeRepository>();
+      services.AddScoped<ICameraActivityRepository, CameraActivityRepository>();
+      services.AddScoped<IRecordingRepository, RecordingRepository>();
     }
 
     public static void LoadServices(IServiceCollection services)
