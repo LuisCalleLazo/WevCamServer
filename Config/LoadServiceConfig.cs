@@ -22,6 +22,7 @@ namespace WebCamServer.Config
     public static void LoadServices(IServiceCollection services)
     {
       services.AddScoped<IAuthService, AuthService>();
+      services.AddScoped<IDetectIAService, DetectIAService>();
     }
   }
 }
