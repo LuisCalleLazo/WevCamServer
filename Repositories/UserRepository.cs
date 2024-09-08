@@ -1,8 +1,10 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using WebCamServer.Dtos;
 using WebCamServer.Helpers;
 using WebCamServer.Models;
 using WebCamServer.Repositories.Interfaces;
+using WebCamServer.Security;
 
 namespace WebCamServer.Repositories
 {
@@ -16,6 +18,24 @@ namespace WebCamServer.Repositories
       _coll = database.GetCollection<User>("User");
     }
 
+    public async Task<User> GetUserByAuth(AuthRequestDto auth)
+    {
+      var filter = Builders<User>.Filter.Or(
+          Builders<User>.Filter.Eq(u => u.Name, auth.NameOrGmail),
+          Builders<User>.Filter.Eq(u => u.Email, auth.NameOrGmail)
+      );
+
+      
+      var user = await _coll.Find(filter).FirstOrDefaultAsync();
+
+      if (user == null) return null;
+
+      
+      if (!PasswordHash.VerifyPassword(user.Password, auth.Password, user.PasswordSalt))
+          return null;
+
+      return user;
+    }
     public async Task<List<User>> GetAll()
     {
       return await _coll.Find(_ => true).ToListAsync();

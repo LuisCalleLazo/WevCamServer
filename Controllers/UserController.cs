@@ -19,17 +19,5 @@ namespace WebCamServer.Controllers
       _authService = authService;
     }
 
-    [HttpGet("list")]
-    public async Task<ActionResult> GetTModels()
-    {
-      return Ok(await _authService.GetAllEntitiesAsync());
-    }
-
-    [HttpPost]
-    public async Task<ActionResult> GetTModels(User user)
-    {
-      await _authService.CreateEntityAsync(user);
-      return Ok("Se creo automaticamente");
-    }
   }
 }
