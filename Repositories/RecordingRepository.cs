@@ -6,32 +6,32 @@ using WebCamServer.Repositories.Interfaces;
 
 namespace WebCamServer.Repositories
 {
-  public class UserRepository : IUserRepository
+  public class RecordingRepository : IRecordingRepository
   {
-    private readonly IMongoCollection<User> _coll;
+    private readonly IMongoCollection<Recording> _coll;
 
-    public UserRepository(IMongoClient mongoClient, IOptions<MongoDbSettings> settings)
+    public RecordingRepository(IMongoClient mongoClient, IOptions<MongoDbSettings> settings)
     {
       var database = mongoClient.GetDatabase(settings.Value.DatabaseName);
-      _coll = database.GetCollection<User>("User");
+      _coll = database.GetCollection<Recording>("Recording");
     }
 
-    public async Task<List<User>> GetAll()
+    public async Task<List<Recording>> GetAll()
     {
       return await _coll.Find(_ => true).ToListAsync();
     }
 
-    public async Task<User> GetById(string id)
+    public async Task<Recording> GetById(string id)
     {
       return await _coll.Find(entity => entity.Id == id).FirstOrDefaultAsync();
     }
 
-    public async Task Create(User newEntity)
+    public async Task Create(Recording newEntity)
     {
       await _coll.InsertOneAsync(newEntity);
     }
 
-    public async Task Update(string id, User updatedEntity)
+    public async Task Update(string id, Recording updatedEntity)
     {
       await _coll.ReplaceOneAsync(entity => entity.Id == id, updatedEntity);
     }

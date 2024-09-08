@@ -1,41 +1,59 @@
 using WebCamServer.Models;
 using WebCamServer.Repositories;
 using WebCamServer.Services.Interfaces;
+using WebCamServer.Dtos;
+using WebCamServer.Repositories.Interfaces;
 
 namespace WebCamServer.Services
 {
   public class AuthService : IAuthService
   {
-    private readonly UserRepository _repo;
-    public AuthService(UserRepository repo)
+    private IUserRepository _userRepo;
+    public AuthService()
     {
-      _repo = repo;
     }
 
-    public async Task<List<User>> GetAllEntitiesAsync()
-    {
-      return await _repo.GetAllAsync();
-    }
+    // public async Task<AuthResponseDto> Authentication(AuthRequestDto auth)
+    // {
+    //   var response = new AuthResponseDto();
 
-    public async Task<User> GetEntityByIdAsync(string id)
-    {
-        return await _repo.GetByIdAsync(id);
-    }
+    //   var user = await _userRepo.GetUserByAuth(auth);
+    //   var userInfo = _mapper.Map<UserResponseDto>(await _userRepo.GetUserInfoById(user.Id));
 
-    public async Task CreateEntityAsync(User entity)
-    {
-      entity.CreateAt = DateTime.UtcNow;
-      await _repo.CreateAsync(entity);
-    }
+    //   userInfo.Name = user.Name;
+    //   userInfo.Email = user.Email;
 
-    public async Task UpdateEntityAsync(string id, User updatedEntity)
-    {
-      await _repo.UpdateAsync(id, updatedEntity);
-    }
+    //   response.User = userInfo;    
+      
+    //   var jwt = _config.GetSection("JwtConfig").Get<AuthJwtDto>();
+    //   if(user == null) return null;
 
-    public async Task DeleteEntityAsync(string id)
-    {
-      await _repo.DeleteAsync(id);
-    }
+    //   bool isAdmin = await _userRepo.IsAdmin(user.Id);
+    //   bool isWorker = await _userRepo.IsWorker(user.Id);
+    //   bool isCustomer = await _userRepo.IsCustomer(user.Id);
+    //   bool isPartner = await _userRepo.IsPartner(user.Id);
+    //   var roles = await _rolRepo.GetRolsForAuth(user.Id);
+
+    //   response.CurrentToken = JwtHelper.GenerateToken(jwt, response.User, isAdmin, isWorker, isCustomer, isPartner,roles);
+    //   response.RefreshToken = JwtHelper.GenerateRefreshToken();
+
+    //   await _repo.DesactiveToken(user.Id);
+    //   await _repo.CreateToken(_mapper.Map<Token>(response), user.Id, jwt.TimeValidMin);
+    //   // await _userRepo.CreateLogLogin(log);
+    //   return response;
+    //   return new AuthResponseDto();
+    // }
+    // public async Task<bool> ValidateRefreshToken(AuthRefreshTokenRequestDto auth, int idUser)
+    // {
+    //   return true;
+    // }
+    // public async Task<AuthResponseDto> RefreshToken(AuthRefreshTokenRequestDto auth, int idUser)
+    // {
+    //   return new AuthResponseDto();
+    // }
+    // public async Task<AuthResponseDto> RegisterUser(UserToCreateDto create)
+    // {
+    //   return new AuthResponseDto();
+    // }
   }
 }

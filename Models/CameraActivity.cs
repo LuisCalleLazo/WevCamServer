@@ -4,7 +4,7 @@ using WebCamServer.Models.Templates;
 
 namespace WebCamServer.Models
 {
-  public class CameraActivty : HistoryModel
+  public class CameraActivity : HistoryModel
   {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
