@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camera Stream</title>
+</head>
+<body>
+  <h1>Live Camera Stream</h1>
+  
+  <!-- Imagen para mostrar el stream -->
+  <img id="cameraStream" alt="Camera Stream" width="640" height="480">
+  
+  <!-- Botones para manejar la conexión WebSocket -->
+  <div>
+    <button id="connectBtn">Start Stream</button>
+    <button id="disconnectBtn" disabled>Stop Stream</button>
+  </div>
+
+  <script>
+    let ws = null;  // WebSocket variable
+    
+    // Botón para conectar al WebSocket
+    document.getElementById('connectBtn').addEventListener('click', function() {
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        console.log("Already connected.");
+        return;
+      }
+
+      ws = new WebSocket("ws://192.168.0.19:5000/stream/camera/watch");
+
+      // Cuando se establezca la conexión
+      ws.onopen = function() {
+        console.log("WebSocket connection established.");
+        document.getElementById('connectBtn').disabled = true;
+        document.getElementById('disconnectBtn').disabled = false;
+      };
+
+      // Cuando llegue un mensaje desde el WebSocket (imagen en formato binario)
+      ws.onmessage = function(event) {
+        console.log("Data received from WebSocket.");
+        const imageBlob = new Blob([event.data], { type: 'image/jpeg' });
+        const imageUrl = URL.createObjectURL(imageBlob);
+        document.getElementById('cameraStream').src = imageUrl;
+        // Liberar la URL temporal después de actualizar la imagen
+        setTimeout(() => URL.revokeObjectURL(imageUrl), 100);
+      };
+
+      // En caso de error
+      ws.onerror = function(error) {
+        console.error("WebSocket error: ", error);
+      };
+
+      // En caso de que se cierre la conexión
+      ws.onclose = function() {
+        console.log("WebSocket connection closed.");
+        document.getElementById('connectBtn').disabled = false;
+        document.getElementById('disconnectBtn').disabled = true;
+      };
+    });
+
+    // Botón para desconectar del WebSocket
+    document.getElementById('disconnectBtn').addEventListener('click', function() {
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.close();
+        console.log("Soket close");
+      } else {
+        console.log("No WebSocket connection to close.");
+      }
+    });
+  </script>
+</body>
+</html>

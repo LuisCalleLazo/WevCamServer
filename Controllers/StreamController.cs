@@ -15,7 +15,6 @@ public class StreamController : ControllerBase
     _conServ = conServ;
   }
 
-
   [HttpGet("camera/esp32-cam")]
   public async Task WsEsp32Camera()
   {

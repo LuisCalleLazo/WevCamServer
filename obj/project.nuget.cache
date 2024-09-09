@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wMk9AfCv2J7hgR1Wj4ce7aOo08NBsNWJnU1eGV2RgLa5RSdNYPmMi56/dt6AbM1V8boXf6Ytyo2uV6Sl1LyntA==",
+  "dgSpecHash": "v3lQSW6ZHtGuR982sEKk1irR4mwMCUf4KoA1o4V6Mj4OpHKK+YX/VQSxevTDIMr8MCzFizZzgJbflj9DK5pKNQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\calle\\Desktop\\UNIFRANZ\\SEMESTRE_6\\Embebidos\\WebCamServer\\WebCamServer.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\calle\\.nuget\\packages\\opencvsharp4\\4.10.0.20240616\\opencvsharp4.4.10.0.20240616.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\opencvsharp4.runtime.win\\4.10.0.20240616\\opencvsharp4.runtime.win.4.10.0.20240616.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
+    "C:\\Users\\calle\\.nuget\\packages\\sixlabors.imagesharp\\3.1.5\\sixlabors.imagesharp.3.1.5.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
