@@ -1,73 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Camera Stream</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream</title>
 </head>
 <body>
-  <h1>Live Camera Stream</h1>
-  
-  <!-- Imagen para mostrar el stream -->
-  <img id="cameraStream" alt="Camera Stream" width="640" height="480">
-  
-  <!-- Botones para manejar la conexión WebSocket -->
-  <div>
-    <button id="connectBtn">Start Stream</button>
-    <button id="disconnectBtn" disabled>Stop Stream</button>
-  </div>
+    <h1>Live Stream from ESP32-CAM</h1>
+    <img id="liveImage" src="" alt="Live Image" style="background-color: #000; width: 500px; height: 500px;"/>
 
-  <script>
-    let ws = null;  // WebSocket variable
-    
-    // Botón para conectar al WebSocket
-    document.getElementById('connectBtn').addEventListener('click', function() {
-      if (ws && ws.readyState === WebSocket.OPEN) {
-        console.log("Already connected.");
-        return;
-      }
+    <script>
+        const webSocket = new WebSocket('ws://192.168.0.19:5000/stream/camera/watch'); // Cambia esto a tu URL del servidor
 
-      ws = new WebSocket("ws://192.168.0.19:5000/stream/camera/watch");
+        webSocket.onmessage = function(event) {
+          console.log("Acaba de llegar data");
+          const imageUrl = URL.createObjectURL(new Blob([event.data]));
+          document.getElementById('liveImage').src = imageUrl;
+        };
 
-      // Cuando se establezca la conexión
-      ws.onopen = function() {
-        console.log("WebSocket connection established.");
-        document.getElementById('connectBtn').disabled = true;
-        document.getElementById('disconnectBtn').disabled = false;
-      };
+        webSocket.onopen = function() {
+            console.log('WebSocket connection established');
+        };
 
-      // Cuando llegue un mensaje desde el WebSocket (imagen en formato binario)
-      ws.onmessage = function(event) {
-        console.log("Data received from WebSocket.");
-        const imageBlob = new Blob([event.data], { type: 'image/jpeg' });
-        const imageUrl = URL.createObjectURL(imageBlob);
-        document.getElementById('cameraStream').src = imageUrl;
-        // Liberar la URL temporal después de actualizar la imagen
-        setTimeout(() => URL.revokeObjectURL(imageUrl), 100);
-      };
+        webSocket.onerror = function(error) {
+            console.error('WebSocket error:', error);
+        };
 
-      // En caso de error
-      ws.onerror = function(error) {
-        console.error("WebSocket error: ", error);
-      };
-
-      // En caso de que se cierre la conexión
-      ws.onclose = function() {
-        console.log("WebSocket connection closed.");
-        document.getElementById('connectBtn').disabled = false;
-        document.getElementById('disconnectBtn').disabled = true;
-      };
-    });
-
-    // Botón para desconectar del WebSocket
-    document.getElementById('disconnectBtn').addEventListener('click', function() {
-      if (ws && ws.readyState === WebSocket.OPEN) {
-        ws.close();
-        console.log("Soket close");
-      } else {
-        console.log("No WebSocket connection to close.");
-      }
-    });
-  </script>
+        webSocket.onclose = function() {
+            console.log('WebSocket connection closed');
+        };
+    </script>
 </body>
 </html>

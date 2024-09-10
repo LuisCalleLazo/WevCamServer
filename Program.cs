@@ -3,6 +3,7 @@ using WebCamServer.Config;
 // using work_service.Services;
 using WebCamServer.Helpers;
 using WebCamServer.Services;
+using WebCamServer.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.ConfigureSwagger();
 
 var app = builder.Build();
+
 
 // TODO: Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

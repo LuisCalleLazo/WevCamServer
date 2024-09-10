@@ -6,5 +6,6 @@ namespace WebCamServer.Services.Interfaces
   {
     Task Esp32CamConnection(WebSocket webSocket);
     Task WatchCamera(WebSocket webSocket);
+    Task CloseAllConnections();
   }
 }

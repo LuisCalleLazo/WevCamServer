@@ -1,7 +1,7 @@
 using System.Net.WebSockets;
 using WebCamServer.Services.Interfaces;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Jpeg;
+using System.Collections.Concurrent;
 
 namespace WebCamServer.Services
 {
@@ -9,53 +9,11 @@ namespace WebCamServer.Services
   {
 
     private byte[] _lastImageBytes; // última imagen recibida
-    private List<WebSocket> _viewers = new List<WebSocket>(); // clientes conectados
+    private ConcurrentBag<WebSocket> _viewers = new ConcurrentBag<WebSocket>();
+
     public CameraService()
     {
 
-    }
-
-    public async Task Esp32CamConnection(WebSocket webSocket)
-    {
-      while (webSocket.State == WebSocketState.Open)
-        {
-          try
-          {
-            var buffer = new byte[1024 * 4];
-            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            if (result.MessageType == WebSocketMessageType.Close)
-            {
-              break;
-            }
-            else if (result.MessageType == WebSocketMessageType.Binary)
-            {
-              byte[] imageBytes = new byte[result.Count];
-              Array.Copy(buffer, 0, imageBytes, 0, result.Count);
-              Console.WriteLine($"Received image from ESP32: {result.Count} bytes.");
-
-              if (IsValidImage(imageBytes))
-              {
-                using (MemoryStream ms = new MemoryStream(imageBytes))
-                {
-                  using (Image image = Image.Load(ms))
-                  {
-                    using (MemoryStream msTransmitir = new MemoryStream())
-                    {
-                      image.SaveAsJpeg(msTransmitir);
-                      _lastImageBytes = msTransmitir.ToArray(); 
-                    }
-                  }
-                }
-
-                await SendImageToViewers(_lastImageBytes);
-              }
-            }
-          }
-          catch (Exception ex)
-          {
-            Console.WriteLine($"Error: {ex.Message}");
-          }
-        }
     }
 
     private async Task SendImageToViewers(byte[] imageBytes)
@@ -84,11 +42,13 @@ namespace WebCamServer.Services
         }
       }
 
-      // Remover los viewers con conexiones cerradas
       foreach (var socket in closedSockets)
       {
-        _viewers.Remove(socket);
+        _viewers = new ConcurrentBag<WebSocket>(_viewers.Except(new[] { socket }));
+        Console.WriteLine("Viewer disconnected and removed.");
       }
+
+      Console.WriteLine("Viewer count after cleanup: " + _viewers.Count());
     }
 
     private bool IsValidImage(byte[] imageBytes)
@@ -109,9 +69,54 @@ namespace WebCamServer.Services
       }
     }
     
+    public async Task Esp32CamConnection(WebSocket webSocket)
+    {
+      var buffer = new byte[1024 * 4];
+      using (var ms = new MemoryStream())
+      {
+        while (webSocket.State == WebSocketState.Open)
+        {
+          WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+
+          if (result.MessageType == WebSocketMessageType.Close)
+          {
+            break;
+          }
+          else if (result.MessageType == WebSocketMessageType.Binary)
+          {
+            ms.Write(buffer, 0, result.Count);
+
+            // Verifica si el mensaje está completo
+            if (result.EndOfMessage)
+            {
+              byte[] imageBytes = ms.ToArray();
+              ms.SetLength(0); // Limpiar el MemoryStream para la siguiente imagen
+
+              if (IsValidImage(imageBytes))
+              {
+                using (Image image = Image.Load(new MemoryStream(imageBytes)))
+                {
+                  using (MemoryStream msTransmitir = new MemoryStream())
+                  {
+                    image.SaveAsJpeg(msTransmitir);
+                    _lastImageBytes = msTransmitir.ToArray(); 
+                  }
+                }
+
+                await SendImageToViewers(_lastImageBytes);
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+
     public async Task WatchCamera(WebSocket webSocket)
     {
       _viewers.Add(webSocket);
+      Console.WriteLine("Viewer count: " + _viewers.Count);
 
       if (_lastImageBytes != null && webSocket.State == WebSocketState.Open)
       {
@@ -130,9 +135,22 @@ namespace WebCamServer.Services
       {
         await Task.Delay(1000);
       }
+      
+      // Eliminar el cliente cuando se desconecte
+      Console.WriteLine("Viewer disconnected. Removing from list.");
+      _viewers = new ConcurrentBag<WebSocket>(_viewers.Except(new[] { webSocket }));
+      Console.WriteLine("Viewer count after removal: " + _viewers.Count());
+    }
 
-      // Remover el cliente cuando se desconecte
-      _viewers.Remove(webSocket);
+    public async Task CloseAllConnections()
+    {
+      foreach (var viewer in _viewers)
+      {
+        if (viewer.State == WebSocketState.Open)
+        {
+          await viewer.CloseAsync(WebSocketCloseStatus.NormalClosure, "Server is shutting down", CancellationToken.None);
+        }
+      }
     }
   }
 }
