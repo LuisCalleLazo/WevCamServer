@@ -7,11 +7,6 @@ using WebCamServer.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-  serverOptions.Listen(System.Net.IPAddress.Any, 5000);  // HTTP
-});
-
 builder.Services.Configure<CloudinarySettings>
   (builder.Configuration.GetSection("CloudinarySettings"));
 
@@ -24,8 +19,8 @@ string MyAllowSpecificOrigins = "AllowAnyOrigin";
 builder.Services.ConfigureCors(MyAllowSpecificOrigins);
 
 // TODO: Cargando la injeccion de dependencias
-LoadServiceCors.LoadServices(builder.Services);
-LoadServiceCors.LoadRepositories(builder.Services);
+LoadService.LoadServices(builder.Services);
+LoadService.LoadRepositories(builder.Services);
 
 
 // TODO: Habilitando el contexto de la base de datos

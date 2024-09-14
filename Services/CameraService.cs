@@ -8,7 +8,6 @@ namespace WebCamServer.Services
   public class CameraService : ICameraService
   {
 
-    private byte[] _lastImageBytes; // última imagen recibida
     private ConcurrentBag<WebSocket> _viewers = new ConcurrentBag<WebSocket>();
 
     public CameraService()
@@ -85,25 +84,27 @@ namespace WebCamServer.Services
           else if (result.MessageType == WebSocketMessageType.Binary)
           {
             ms.Write(buffer, 0, result.Count);
-
-            // Verifica si el mensaje está completo
             if (result.EndOfMessage)
             {
               byte[] imageBytes = ms.ToArray();
-              ms.SetLength(0); // Limpiar el MemoryStream para la siguiente imagen
+              ms.SetLength(0);
 
               if (IsValidImage(imageBytes))
               {
+                Console.WriteLine("Image Valid");
+                // Guardar la imagen en una carpeta
+                string directoryPath = Directory.GetCurrentDirectory() + @"/Video";
+                Directory.CreateDirectory(directoryPath);
+
+                string fileName = directoryPath + $"/video_{DateTime.Now.ToString()}.jpg";
+
                 using (Image image = Image.Load(new MemoryStream(imageBytes)))
                 {
-                  using (MemoryStream msTransmitir = new MemoryStream())
-                  {
-                    image.SaveAsJpeg(msTransmitir);
-                    _lastImageBytes = msTransmitir.ToArray(); 
-                  }
+                  Console.WriteLine("Image Write");
+                  image.SaveAsJpeg(fileName); 
                 }
 
-                await SendImageToViewers(_lastImageBytes);
+                // await SendImageToViewers(_lastImageBytes);
               }
             }
           }
@@ -117,19 +118,6 @@ namespace WebCamServer.Services
     {
       _viewers.Add(webSocket);
       Console.WriteLine("Viewer count: " + _viewers.Count);
-
-      if (_lastImageBytes != null && webSocket.State == WebSocketState.Open)
-      {
-
-        await webSocket.SendAsync(
-          new ArraySegment<byte>(_lastImageBytes), 
-          WebSocketMessageType.Binary, 
-          true, 
-          CancellationToken.None
-        );
-
-        Console.WriteLine("Sent to New Client");
-      }
 
       while (webSocket.State == WebSocketState.Open)
       {

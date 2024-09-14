@@ -7,7 +7,7 @@ using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Config
 {
-  public static class LoadServiceCors
+  public static class LoadService
   {
     public static void LoadRepositories(IServiceCollection services)
     {
