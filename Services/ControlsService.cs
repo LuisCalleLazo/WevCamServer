@@ -1,4 +1,5 @@
 using System.Net.WebSockets;
+using System.Text;
 using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Services
@@ -19,13 +20,22 @@ namespace WebCamServer.Services
         var result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
         if (result.MessageType == WebSocketMessageType.Close)
         {
-          Console.WriteLine("Se cerro la conexion");
           await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
         }
         else
         {
-          Console.WriteLine("Se envio el mensaje");
-          await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+          var clientMsg = Encoding.UTF8.GetString(buffer, 0, result.Count);
+          var serverResponse = $"RESPUESTA DEL SERVIDOR: {clientMsg}";
+
+          var bufferRes = Encoding.UTF8.GetBytes(serverResponse);
+          
+          
+          await webSocket.SendAsync(
+            new ArraySegment<byte>(bufferRes), 
+            WebSocketMessageType.Text, 
+            true, 
+            CancellationToken.None
+            );
         }
       }
     }
