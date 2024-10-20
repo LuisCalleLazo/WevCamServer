@@ -18,7 +18,6 @@ public class StreamController : ControllerBase
   [HttpGet("camera/esp32-cam")]
   public async Task WsEsp32Camera()
   {
-    Console.WriteLine("INTENTO");
     if (HttpContext.WebSockets.IsWebSocketRequest)
     {
       WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();

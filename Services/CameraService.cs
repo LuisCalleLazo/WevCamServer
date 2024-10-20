@@ -70,7 +70,7 @@ namespace WebCamServer.Services
     
     public async Task Esp32CamConnection(WebSocket webSocket)
     {
-      var buffer = new byte[1024 * 4];
+      var buffer = new byte[1024 * 8];
       using (var ms = new MemoryStream())
       {
         while (webSocket.State == WebSocketState.Open)
@@ -92,16 +92,18 @@ namespace WebCamServer.Services
               if (IsValidImage(imageBytes))
               {
                 Console.WriteLine("Image Valid");
-                // Guardar la imagen en una carpeta
-                string directoryPath = Directory.GetCurrentDirectory() + @"/Video";
-                Directory.CreateDirectory(directoryPath);
 
-                string fileName = directoryPath + $"/video_{DateTime.Now.ToString()}.jpg";
+                // Guardar la imagen en una carpeta
+                string directoryPath = Directory.GetCurrentDirectory() + @"/Video/Video_" + DateTime.Now.ToString("yyyy-MM-dd");
+                if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
+
+                string dateName = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+                string fileName = directoryPath + $"/video_{dateName}.jpg";
 
                 using (Image image = Image.Load(new MemoryStream(imageBytes)))
                 {
-                  Console.WriteLine("Image Write");
                   image.SaveAsJpeg(fileName); 
+                  Console.WriteLine("Image Write");
                 }
 
                 // await SendImageToViewers(_lastImageBytes);
