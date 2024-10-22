@@ -34,13 +34,11 @@ public class StreamController : ControllerBase
   {
     if (HttpContext.WebSockets.IsWebSocketRequest)
     {
-      Console.WriteLine("Se conecto!!!");
       WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
       await _camServ.WatchCamera(webSocket);
     }
     else
     {
-      Console.WriteLine("Lo rechazo!!!");
       HttpContext.Response.StatusCode = 400;
     }
   }

@@ -105,8 +105,6 @@ namespace WebCamServer.Services
                   image.SaveAsJpeg(fileName); 
                   Console.WriteLine("Image Write");
                 }
-
-                // await SendImageToViewers(_lastImageBytes);
               }
             }
           }
@@ -118,18 +116,29 @@ namespace WebCamServer.Services
 
     public async Task WatchCamera(WebSocket webSocket)
     {
-      _viewers.Add(webSocket);
-      Console.WriteLine("Viewer count: " + _viewers.Count);
+      // Ruta de la carpeta que contiene las subcarpetas de video
+      string videoFolderPath = Directory.GetCurrentDirectory() + @"/Video";
+      var videoFolders = Directory.GetDirectories(videoFolderPath);
 
-      while (webSocket.State == WebSocketState.Open)
+      foreach (var folder in videoFolders)
       {
-        await Task.Delay(1000);
+          var images = Directory.GetFiles(folder, "*.jpg").OrderBy(f => f).ToList(); // Cambia la extensión según sea necesario
+          foreach (var imagePath in images)
+          {
+              // Verificar si el WebSocket sigue abierto
+              if (webSocket.State != WebSocketState.Open)
+                  break;
+
+              // Leer la imagen y convertirla a un arreglo de bytes
+              byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
+              
+              // Enviar la imagen a través del WebSocket
+              await webSocket.SendAsync(new ArraySegment<byte>(imageBytes), WebSocketMessageType.Binary, true, CancellationToken.None);
+              
+              // Esperar 1 segundo antes de enviar la siguiente imagen
+              await Task.Delay(1000);
+          }
       }
-      
-      // Eliminar el cliente cuando se desconecte
-      Console.WriteLine("Viewer disconnected. Removing from list.");
-      _viewers = new ConcurrentBag<WebSocket>(_viewers.Except(new[] { webSocket }));
-      Console.WriteLine("Viewer count after removal: " + _viewers.Count());
     }
 
     public async Task CloseAllConnections()

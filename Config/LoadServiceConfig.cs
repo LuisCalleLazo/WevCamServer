@@ -16,7 +16,6 @@ namespace WebCamServer.Config
       services.AddScoped<ICameraRepository, CameraRepository>();
       services.AddScoped<ICameraHomeRepository, CameraHomeRepository>();
       services.AddScoped<ICameraActivityRepository, CameraActivityRepository>();
-      services.AddScoped<IRecordingRepository, RecordingRepository>();
     }
 
     public static void LoadServices(IServiceCollection services)
