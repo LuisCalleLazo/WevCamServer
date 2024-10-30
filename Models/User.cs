@@ -6,18 +6,21 @@ namespace WebCamServer.Models
 {
   public class User : HistoryModel
   {
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
     public string Name { get; set; }
-    public string FirstName { get; set; }
-    public string DadLastName { get; set; }
-    public string MomLastName { get; set; }
-    public int Age { get; set; }
-    public List<string> Photo { get; set; }
     public string Email { get; set; }
-    public string City { get; set; }
     public string Password { get; set; } 
-    public Guid PasswordSalt { get; set; } 
+    public Guid PasswordSalt { get; set; }
+
+    // todo: References
+    public int UserInfoId { get; set; }
+
+
+    public virtual UserInfo UserInfo { get; set; }
+
+    public virtual ICollection<Notification> Notifications { get; set; }
+    public virtual Seeker Seeker { get; set; }
+    public virtual Admin Admin { get; set; }
+    public virtual ICollection<Token> Tokens { get; set; }
   }
 }
