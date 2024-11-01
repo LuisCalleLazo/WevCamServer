@@ -2,7 +2,7 @@ namespace WebCamServer.Models.RedSocial
 {
   public class Comment 
   {
-    public int Id { get; set; }
+    public string Id { get; set; }
     public string Comments { get; set; }
     public string Image { get; set; }
     public string Video { get; set; }
