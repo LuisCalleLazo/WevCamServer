@@ -7,7 +7,6 @@ namespace WebCamServer.Repositories
 {
   public class VideoPublicationRepository
   {
-    
     private readonly IMongoCollection<VideoPublication> _coll;
     
     public VideoPublicationRepository(IMongoClient mongoClient, IOptions<MongoDbSettings> settings)
