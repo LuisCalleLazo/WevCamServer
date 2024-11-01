@@ -23,9 +23,6 @@ namespace usr_service.Data
     public DbSet<FoundVideo> FoundVideos { get; set; }
     public DbSet<Notification> Notifications { get; set; }
     public DbSet<Missing> Missings { get; set; } 
-    
-    private string varchar_name = "varchar(50)";
-    private string varchar_desc = "varchar(200)";
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       

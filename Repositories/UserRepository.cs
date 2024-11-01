@@ -10,56 +10,56 @@ namespace WebCamServer.Repositories
 {
   public class UserRepository : IUserRepository
   {
-    private readonly IMongoCollection<User> _coll;
+    // private readonly IMongoCollection<User> _coll;
 
-    public UserRepository(IMongoClient mongoClient, IOptions<MongoDbSettings> settings)
-    {
-      var database = mongoClient.GetDatabase(settings.Value.DatabaseName);
-      _coll = database.GetCollection<User>("User");
-    }
+    // public UserRepository(IMongoClient mongoClient, IOptions<MongoDbSettings> settings)
+    // {
+    //   var database = mongoClient.GetDatabase(settings.Value.DatabaseName);
+    //   _coll = database.GetCollection<User>("User");
+    // }
 
-    public async Task<User> GetUserByAuth(AuthRequestDto auth)
-    {
-      var filter = Builders<User>.Filter.Or(
-          Builders<User>.Filter.Eq(u => u.Name, auth.NameOrGmail),
-          Builders<User>.Filter.Eq(u => u.Email, auth.NameOrGmail)
-      );
-
-      
-      var user = await _coll.Find(filter).FirstOrDefaultAsync();
-
-      if (user == null) return null;
+    // public async Task<User> GetUserByAuth(AuthRequestDto auth)
+    // {
+    //   var filter = Builders<User>.Filter.Or(
+    //       Builders<User>.Filter.Eq(u => u.Name, auth.NameOrGmail),
+    //       Builders<User>.Filter.Eq(u => u.Email, auth.NameOrGmail)
+    //   );
 
       
-      if (!PasswordHash.VerifyPassword(user.Password, auth.Password, user.PasswordSalt))
-          return null;
+    //   var user = await _coll.Find(filter).FirstOrDefaultAsync();
 
-      return user;
-    }
-    public async Task<List<User>> GetAll()
-    {
-      return await _coll.Find(_ => true).ToListAsync();
-    }
+    //   if (user == null) return null;
 
-    public async Task<User> GetById(string id)
-    {
-      return await _coll.Find(entity => entity.Id == id).FirstOrDefaultAsync();
-    }
+      
+    //   if (!PasswordHash.VerifyPassword(user.Password, auth.Password, user.PasswordSalt))
+    //       return null;
 
-    public async Task Create(User newEntity)
-    {
-      await _coll.InsertOneAsync(newEntity);
-    }
+    //   return user;
+    // }
+    // public async Task<List<User>> GetAll()
+    // {
+    //   return await _coll.Find(_ => true).ToListAsync();
+    // }
 
-    public async Task Update(string id, User updatedEntity)
-    {
-      await _coll.ReplaceOneAsync(entity => entity.Id == id, updatedEntity);
-    }
+    // public async Task<User> GetById(string id)
+    // {
+    //   return await _coll.Find(entity => entity.Id == id).FirstOrDefaultAsync();
+    // }
 
-    public async Task Delete(string id)
-    {
-      await _coll.DeleteOneAsync(entity => entity.Id == id);
-    }
+    // public async Task Create(User newEntity)
+    // {
+    //   await _coll.InsertOneAsync(newEntity);
+    // }
+
+    // public async Task Update(string id, User updatedEntity)
+    // {
+    //   await _coll.ReplaceOneAsync(entity => entity.Id == id, updatedEntity);
+    // }
+
+    // public async Task Delete(string id)
+    // {
+    //   await _coll.DeleteOneAsync(entity => entity.Id == id);
+    // }
 
   }
 }
