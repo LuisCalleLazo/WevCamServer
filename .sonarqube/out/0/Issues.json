@@ -1,0 +1,3542 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.8.0.0",
+        "fileVersion": "4.8.0-7.23572.1 (7b75981c)",
+        "semanticVersion": "4.8.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Config/LoadServiceConfig.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 7,
+                  "endLine": 14,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Config/LoadServiceConfig.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 7,
+                  "endLine": 23,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/appsettings.json",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 19,
+                  "endLine": 19,
+                  "endColumn": 96
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/appsettings.json",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 19,
+                  "endLine": 31,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 5,
+                  "endLine": 25,
+                  "endColumn": 9
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Database/DataContext.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 9,
+                  "endLine": 40,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Database/DataContext.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 9,
+                  "endLine": 46,
+                  "endColumn": 66
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Database/DataContext.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 9,
+                  "endLine": 55,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Database/DataContext.cs",
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 9,
+                  "endLine": 64,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/Admin.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 8,
+                  "endLine": 9,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/Contacts.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 8,
+                  "endLine": 12,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/FoundVideo.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 8,
+                  "endLine": 12,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/Missing.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 8,
+                  "endLine": 17,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/Notification.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 8,
+                  "endLine": 13,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/RedSocial/Comment.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 8,
+                  "endLine": 11,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/RedSocial/VideoPublication.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 8,
+                  "endLine": 12,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/Seeker.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 8,
+                  "endLine": 9,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/Token.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 8,
+                  "endLine": 15,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Models/User.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 8,
+                  "endLine": 15,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1,
+                  "endLine": 11,
+                  "endColumn": 5
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 1,
+                  "endLine": 58,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 4,
+                  "endLine": 18,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 4,
+                  "endLine": 22,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 4,
+                  "endLine": 26,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 4,
+                  "endLine": 31,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 4,
+                  "endLine": 34,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 4,
+                  "endLine": 38,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 4,
+                  "endLine": 44,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/CameraActivityRepository.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 5,
+                  "endLine": 11,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/CameraHomeRepository.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 5,
+                  "endLine": 11,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/CameraRepository.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 5,
+                  "endLine": 11,
+                  "endColumn": 56
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/Interfaces/ICameraActivityRepository.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 5,
+                  "endLine": 7,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/Interfaces/ICameraHomeRepository.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 5,
+                  "endLine": 7,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/Interfaces/ICameraRepository.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 5,
+                  "endLine": 7,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/Interfaces/ITokenRepository.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 5,
+                  "endLine": 8,
+                  "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/Interfaces/IUserRepository.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 5,
+                  "endLine": 8,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/TokenRepository.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 5,
+                  "endLine": 12,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Repositories/UserRepository.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 5,
+                  "endLine": 13,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/AuthService.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 5,
+                  "endLine": 13,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/Interfaces/IAuthService.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 5,
+                  "endLine": 8,
+                  "endColumn": 66
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/Interfaces/IUserService.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 5,
+                  "endLine": 8,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/UserService.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 5,
+                  "endLine": 11,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_service' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 35,
+                  "endLine": 15,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_authService' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 35,
+                  "endLine": 12,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_service' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 35,
+                  "endLine": 13,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_logger' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 46,
+                  "endLine": 14,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1050",
+          "level": "note",
+          "message": "Declare types in namespaces",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/StreamController.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 14,
+                  "endLine": 7,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'StreamController' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/StreamController.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 14,
+                  "endLine": 7,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1118",
+          "level": "warning",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Security/Jwt.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 16,
+                  "endLine": 12,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Bearer' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Config/SwaggerConfig.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 35,
+                  "endLine": 14,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Config/SwaggerConfig.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 22,
+                  "endLine": 22,
+                  "endColumn": 30
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Config/SwaggerConfig.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 26,
+                  "endLine": 33,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Config/SwaggerConfig.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 26,
+                  "endLine": 36,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'integer' 47 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 50,
+                  "endLine": 19,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 60,
+                  "endLine": 26,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 60,
+                  "endLine": 27,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 60,
+                  "endLine": 28,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 50,
+                  "endLine": 39,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 60,
+                  "endLine": 51,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 60,
+                  "endLine": 52,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 60,
+                  "endLine": 53,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 50,
+                  "endLine": 64,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 58,
+                  "endLine": 70,
+                  "endColumn": 67
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 60,
+                  "endLine": 74,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 75,
+                  "startColumn": 60,
+                  "endLine": 75,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 60,
+                  "endLine": 76,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 50,
+                  "endLine": 93,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 54,
+                  "endLine": 95,
+                  "endColumn": 63
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 60,
+                  "endLine": 99,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 60,
+                  "endLine": 100,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 60,
+                  "endLine": 101,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 118,
+                  "startColumn": 50,
+                  "endLine": 118,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 123,
+                  "startColumn": 52,
+                  "endLine": 123,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 54,
+                  "endLine": 124,
+                  "endColumn": 63
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 128,
+                  "startColumn": 60,
+                  "endLine": 128,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 60,
+                  "endLine": 129,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 130,
+                  "startColumn": 60,
+                  "endLine": 130,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 147,
+                  "startColumn": 50,
+                  "endLine": 147,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 149,
+                  "startColumn": 54,
+                  "endLine": 149,
+                  "endColumn": 63
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 60,
+                  "endLine": 153,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 60,
+                  "endLine": 154,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 60,
+                  "endLine": 155,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 178,
+                  "startColumn": 54,
+                  "endLine": 178,
+                  "endColumn": 63
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 195,
+                  "startColumn": 50,
+                  "endLine": 195,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 199,
+                  "startColumn": 52,
+                  "endLine": 199,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 200,
+                  "startColumn": 56,
+                  "endLine": 200,
+                  "endColumn": 65
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 204,
+                  "startColumn": 60,
+                  "endLine": 204,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 205,
+                  "startColumn": 60,
+                  "endLine": 205,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 60,
+                  "endLine": 206,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 223,
+                  "startColumn": 50,
+                  "endLine": 223,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 232,
+                  "startColumn": 56,
+                  "endLine": 232,
+                  "endColumn": 65
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 236,
+                  "startColumn": 60,
+                  "endLine": 236,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 237,
+                  "startColumn": 60,
+                  "endLine": 237,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 238,
+                  "startColumn": 60,
+                  "endLine": 238,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 255,
+                  "startColumn": 50,
+                  "endLine": 255,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 260,
+                  "startColumn": 56,
+                  "endLine": 260,
+                  "endColumn": 65
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 261,
+                  "startColumn": 57,
+                  "endLine": 261,
+                  "endColumn": 66
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 265,
+                  "startColumn": 60,
+                  "endLine": 265,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 266,
+                  "startColumn": 60,
+                  "endLine": 266,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 267,
+                  "startColumn": 60,
+                  "endLine": 267,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "10": null,
+              "11": null,
+              "12": null,
+              "13": null,
+              "14": null,
+              "15": null,
+              "16": null,
+              "17": null,
+              "18": null,
+              "19": null,
+              "2": null,
+              "20": null,
+              "21": null,
+              "22": null,
+              "23": null,
+              "24": null,
+              "25": null,
+              "26": null,
+              "27": null,
+              "28": null,
+              "29": null,
+              "3": null,
+              "30": null,
+              "31": null,
+              "32": null,
+              "33": null,
+              "34": null,
+              "35": null,
+              "36": null,
+              "37": null,
+              "38": null,
+              "39": null,
+              "4": null,
+              "40": null,
+              "41": null,
+              "42": null,
+              "43": null,
+              "44": null,
+              "45": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null,
+              "9": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Npgsql:ValueGenerationStrategy' 9 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 37,
+                  "endLine": 20,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 37,
+                  "endLine": 40,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 37,
+                  "endLine": 65,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 37,
+                  "endLine": 94,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 119,
+                  "startColumn": 37,
+                  "endLine": 119,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 37,
+                  "endLine": 148,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 37,
+                  "endLine": 196,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 224,
+                  "startColumn": 37,
+                  "endLine": 224,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 256,
+                  "startColumn": 37,
+                  "endLine": 256,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'timestamp with time zone' 31 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 61,
+                  "endLine": 23,
+                  "endColumn": 87
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 61,
+                  "endLine": 24,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 61,
+                  "endLine": 25,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 62,
+                  "endLine": 45,
+                  "endColumn": 88
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 61,
+                  "endLine": 48,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 61,
+                  "endLine": 49,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 61,
+                  "endLine": 50,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 61,
+                  "endLine": 71,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 61,
+                  "endLine": 72,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 61,
+                  "endLine": 73,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 61,
+                  "endLine": 96,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 61,
+                  "endLine": 97,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 61,
+                  "endLine": 98,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 125,
+                  "startColumn": 61,
+                  "endLine": 125,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 61,
+                  "endLine": 126,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 127,
+                  "startColumn": 61,
+                  "endLine": 127,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 61,
+                  "endLine": 150,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 151,
+                  "startColumn": 61,
+                  "endLine": 151,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 61,
+                  "endLine": 152,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 175,
+                  "startColumn": 63,
+                  "endLine": 175,
+                  "endColumn": 89
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 176,
+                  "startColumn": 64,
+                  "endLine": 176,
+                  "endColumn": 90
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 61,
+                  "endLine": 201,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 202,
+                  "startColumn": 61,
+                  "endLine": 202,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 203,
+                  "startColumn": 61,
+                  "endLine": 203,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 226,
+                  "startColumn": 62,
+                  "endLine": 226,
+                  "endColumn": 88
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 233,
+                  "startColumn": 61,
+                  "endLine": 233,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 234,
+                  "startColumn": 61,
+                  "endLine": 234,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 235,
+                  "startColumn": 61,
+                  "endLine": 235,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 262,
+                  "startColumn": 61,
+                  "endLine": 262,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 263,
+                  "startColumn": 61,
+                  "endLine": 263,
+                  "endColumn": 87
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 264,
+                  "startColumn": 61,
+                  "endLine": 264,
+                  "endColumn": 87
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "10": null,
+              "11": null,
+              "12": null,
+              "13": null,
+              "14": null,
+              "15": null,
+              "16": null,
+              "17": null,
+              "18": null,
+              "19": null,
+              "2": null,
+              "20": null,
+              "21": null,
+              "22": null,
+              "23": null,
+              "24": null,
+              "25": null,
+              "26": null,
+              "27": null,
+              "28": null,
+              "29": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null,
+              "9": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Users' 9 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 23,
+                  "endLine": 61,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 41,
+                  "endLine": 109,
+                  "endColumn": 48
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 138,
+                  "startColumn": 41,
+                  "endLine": 138,
+                  "endColumn": 48
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 41,
+                  "endLine": 163,
+                  "endColumn": 48
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 41,
+                  "endLine": 186,
+                  "endColumn": 48
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 330,
+                  "startColumn": 24,
+                  "endLine": 330,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 336,
+                  "startColumn": 24,
+                  "endLine": 336,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 342,
+                  "startColumn": 24,
+                  "endLine": 342,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 375,
+                  "startColumn": 23,
+                  "endLine": 375,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Seekers' 5 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 23,
+                  "endLine": 144,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 41,
+                  "endLine": 214,
+                  "endColumn": 50
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 246,
+                  "startColumn": 41,
+                  "endLine": 246,
+                  "endColumn": 50
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 319,
+                  "startColumn": 24,
+                  "endLine": 319,
+                  "endColumn": 33
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 372,
+                  "startColumn": 23,
+                  "endLine": 372,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Missings' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 220,
+                  "startColumn": 23,
+                  "endLine": 220,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 281,
+                  "startColumn": 41,
+                  "endLine": 281,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 309,
+                  "startColumn": 24,
+                  "endLine": 309,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 369,
+                  "startColumn": 23,
+                  "endLine": 369,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'FoundVideos' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 252,
+                  "startColumn": 23,
+                  "endLine": 252,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 299,
+                  "startColumn": 24,
+                  "endLine": 299,
+                  "endColumn": 37
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 304,
+                  "startColumn": 24,
+                  "endLine": 304,
+                  "endColumn": 37
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 357,
+                  "startColumn": 23,
+                  "endLine": 357,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'UserId' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 289,
+                  "startColumn": 25,
+                  "endLine": 289,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 315,
+                  "startColumn": 25,
+                  "endLine": 315,
+                  "endColumn": 33
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 320,
+                  "startColumn": 25,
+                  "endLine": 320,
+                  "endColumn": 33
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Migrations/20241101185129_First%20migration.cs",
+                "region": {
+                  "startLine": 326,
+                  "startColumn": 25,
+                  "endLine": 326,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_userRepo' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 38,
+                  "endLine": 10,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1144",
+          "level": "warning",
+          "message": "Remove the unused private method 'SendImageToViewers'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 24,
+                  "endLine": 18,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1116",
+          "level": "warning",
+          "message": "Remove this empty statement.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 21,
+                  "endLine": 53,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5122",
+          "level": "warning",
+          "message": "Make sure this permissive CORS policy is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Config/CorsConfig.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 13,
+                  "endLine": 13,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1850",
+          "level": "note",
+          "message": "Prefer static 'System.Security.Cryptography.SHA256.HashData' method over 'ComputeHash'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Security/PasswordHash.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 27,
+                  "endLine": 19,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Security/PasswordHash.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 18,
+                  "endLine": 11,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ComputeTypePropertyKey": "ComputeHash",
+              "DeleteHashCreationPropertyKey": "DeleteHashCreationPropertyKey",
+              "HashCreationIndexPropertyKey": "0",
+              "TargetHashTypeDiagnosticPropertyKey": "SHA256"
+            }
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'CalculateFaceSimilarity' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 20,
+                  "endLine": 52,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'LoadAuthorizedPeople' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 37,
+                  "endLine": 47,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3267",
+          "level": "warning",
+          "message": "Loop should be simplified by calling Select(authorizedPerson => authorizedPerson.Value))",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 64,
+                  "endLine": 33,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await RunAsync instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Program.cs",
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1,
+                  "endLine": 62,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6960",
+          "level": "warning",
+          "message": "This controller has multiple responsibilities and could be split into 2 smaller controllers.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/StreamController.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 14,
+                  "endLine": 7,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/StreamController.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 21,
+                  "endLine": 19,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/StreamController.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 21,
+                  "endLine": 33,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Controllers/StreamController.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 21,
+                  "endLine": 47,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "May belong to responsibility #1.",
+              "1": "May belong to responsibility #1.",
+              "2": "May belong to responsibility #2."
+            }
+          }
+        },
+        {
+          "ruleId": "S1172",
+          "level": "warning",
+          "message": "Remove this unused method parameter 'face1'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 44,
+                  "endLine": 52,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "IsRemovable": "True"
+            }
+          }
+        },
+        {
+          "ruleId": "S1172",
+          "level": "warning",
+          "message": "Remove this unused method parameter 'face2'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 55,
+                  "endLine": 52,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "IsRemovable": "True"
+            }
+          }
+        },
+        {
+          "ruleId": "S2971",
+          "level": "warning",
+          "message": "Use 'Count' property here instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 67,
+                  "endLine": 50,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 23,
+                  "endLine": 71,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 9,
+                  "endLine": 76,
+                  "endColumn": 14
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 11,
+                  "endLine": 80,
+                  "endColumn": 13
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 11,
+                  "endLine": 84,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 13,
+                  "endLine": 87,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 15,
+                  "endLine": 92,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 17,
+                  "endLine": 98,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "2": "+1",
+              "3": "+3 (incl 2 for nesting)",
+              "4": "+4 (incl 3 for nesting)",
+              "5": "+5 (incl 4 for nesting)"
+            }
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'IsValidImage' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 18,
+                  "endLine": 53,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await WriteAsync instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 13,
+                  "endLine": 86,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await LoadAsync instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 103,
+                  "startColumn": 38,
+                  "endLine": 103,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await SaveAsJpegAsync instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 105,
+                  "startColumn": 19,
+                  "endLine": 105,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1829",
+          "level": "note",
+          "message": "Use the \"Count\" property instead of Enumerable.Count()",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 58,
+                  "endLine": 50,
+                  "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "PropertyNameKey": "Count"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'IsValidImage' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/CameraService.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 18,
+                  "endLine": 53,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'LoadAuthorizedPeople' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 37,
+                  "endLine": 47,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'CalculateFaceSimilarity' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/calle/Desktop/UNIFRANZ/SEMESTRE_6/Embebidos/WebCamServer/Services/DetectIAService.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 20,
+                  "endLine": 52,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CA1050": {
+          "id": "CA1050",
+          "shortDescription": "Declare types in namespaces",
+          "fullDescription": "Types are declared in namespaces to prevent name collisions and as a way to organize related types in an object hierarchy.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1050",
+          "properties": {
+            "category": "Design",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1822": {
+          "id": "CA1822",
+          "shortDescription": "Mark members as static",
+          "fullDescription": "Members that do not access instance data or call instance methods can be marked as static. After you mark the methods as static, the compiler will emit nonvirtual call sites to these members. This can give you a measurable performance gain for performance-sensitive code.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1822",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1829": {
+          "id": "CA1829",
+          "shortDescription": "Use Length/Count property instead of Count() when available",
+          "fullDescription": "Enumerable.Count() potentially enumerates the sequence while a Length/Count property is a direct access.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1829",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1850": {
+          "id": "CA1850",
+          "shortDescription": "Prefer static 'HashData' method over 'ComputeHash'",
+          "fullDescription": "It is more efficient to use the static 'HashData' method over creating and managing a HashAlgorithm instance to call 'ComputeHash'.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1850",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "S1116": {
+          "id": "S1116",
+          "shortDescription": "Empty statements should be removed",
+          "fullDescription": "Empty statements represented by a semicolon ; are statements that do not perform any operation. They are often the result of a typo or a misunderstanding of the language syntax. It is a good practice to remove empty statements since they don’t add value and lead to confusion and errors.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1116",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1118": {
+          "id": "S1118",
+          "shortDescription": "Utility classes should not have public constructors",
+          "fullDescription": "Whenever there are portions of code that are duplicated and do not depend on the state of their container class, they can be centralized inside a \"utility class\". A utility class is a class that only has static members, hence it should not be instantiated.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1118",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1135": {
+          "id": "S1135",
+          "shortDescription": "Track uses of \"TODO\" tags",
+          "fullDescription": "Developers often use TODO tags to mark areas in the code where additional work or improvements are needed but are not implemented immediately. However, these TODO tags sometimes get overlooked or forgotten, leading to incomplete or unfinished code. This rule aims to identify and address unattended TODO tags to ensure a clean and maintainable codebase. This description explores why this is a problem and how it can be fixed to improve the overall code quality.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1135",
+          "properties": {
+            "category": "Info Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1144": {
+          "id": "S1144",
+          "shortDescription": "Unused private types or members should be removed",
+          "fullDescription": "This rule raises an issue when a private/internal type or member is never referenced in the code.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1144",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1172": {
+          "id": "S1172",
+          "shortDescription": "Unused method parameters should be removed",
+          "fullDescription": "A typical code smell known as unused function parameters refers to parameters declared in a function but not used anywhere within the function’s body. While this might seem harmless at first glance, it can lead to confusion and potential errors in your code. Disregarding the values passed to such parameters, the function’s behavior will be the same, but the programmer’s intention won’t be clearly expressed anymore. Therefore, removing function parameters that are not being utilized is considered best practice.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1172",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1192": {
+          "id": "S1192",
+          "shortDescription": "String literals should not be duplicated",
+          "fullDescription": "Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all occurrences.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1192",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S125": {
+          "id": "S125",
+          "shortDescription": "Sections of code should not be commented out",
+          "fullDescription": "Commented-out code distracts the focus from the actual executed code. It creates a noise that increases maintenance code. And because it is never executed, it quickly becomes out of date and invalid.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2068": {
+          "id": "S2068",
+          "shortDescription": "Hard-coded credentials are security-sensitive",
+          "fullDescription": "Because it is easy to extract strings from an application source code or binary, credentials should not be hard-coded. This is particularly true for applications that are distributed or that are open-source.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2068",
+          "properties": {
+            "category": "Blocker Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2325": {
+          "id": "S2325",
+          "shortDescription": "Methods and properties that don't access instance data should be static",
+          "fullDescription": "Methods and properties that don’t access instance data should be marked as static for the following reasons:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2325",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2971": {
+          "id": "S2971",
+          "shortDescription": "LINQ expressions should be simplified",
+          "fullDescription": "In the interests of readability, code that can be simplified should be simplified. To that end, there are several ways IEnumerable language integrated queries (LINQ) can be simplified. This not only improves readabilty but can also lead to improved performance.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2971",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3267": {
+          "id": "S3267",
+          "shortDescription": "Loops should be simplified with \"LINQ\" expressions",
+          "fullDescription": "When a loop is filtering, selecting or aggregating, those functions can be handled with a clearer, more concise LINQ expression instead.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3267",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3776": {
+          "id": "S3776",
+          "shortDescription": "Cognitive Complexity of methods should not be too high",
+          "fullDescription": "This rule raises an issue when the code cognitive complexity of a function is above a certain threshold.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3776",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3903": {
+          "id": "S3903",
+          "shortDescription": "Types should be defined in named namespaces",
+          "fullDescription": "Types are declared in namespaces in order to prevent name collisions and as a way to organize them into the object hierarchy. Types that are defined outside any named namespace are in a global namespace that cannot be referenced in code.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3903",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4487": {
+          "id": "S4487",
+          "shortDescription": "Unread \"private\" fields should be removed",
+          "fullDescription": "Private fields which are written but never read are a case of \"dead store\". Changing the value of such a field is useless and most probably indicates an error in the code.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4487",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5122": {
+          "id": "S5122",
+          "shortDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive",
+          "fullDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive. It has led in the past to the following vulnerabilities:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-5122",
+          "properties": {
+            "category": "Minor Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6960": {
+          "id": "S6960",
+          "shortDescription": "Controllers should not have mixed responsibilities",
+          "fullDescription": "ASP.NET controllers should not have mixed responsibilities. Following the Single Responsibility Principle (SRP), they should be kept lean and focused on a single, separate concern. In short, they should have a single reason to change.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6960",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6966": {
+          "id": "S6966",
+          "shortDescription": "Awaitable method should be used",
+          "fullDescription": "In an async method, any blocking operations should be avoided.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6966",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

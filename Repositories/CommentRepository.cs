@@ -2,10 +2,11 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using WebCamServer.Helpers;
 using WebCamServer.Models.RedSocial;
+using WebCamServer.Repositories.Interfaces;
 
 namespace WebCamServer.Repositories
 {
-  public class CommentRepository
+  public class CommentRepository : ICommentRepository
   {
     private readonly IMongoCollection<Comment> _coll;
     
