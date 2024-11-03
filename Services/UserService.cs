@@ -8,34 +8,33 @@ namespace WebCamServer.Services
 {
   public class UserService : IUserService
   {
-    // private readonly IUserRepository _repo;
-    // private readonly IMapper _mapper;
-    // public UserService(IUserRepository repo, IMapper mapper)
-    // {
-    //   _repo = repo;
-    //   _mapper = mapper;
-    // }
+    private readonly IUserRepository _repo;
+    private readonly IMapper _mapper;
+    public UserService(IUserRepository repo, IMapper mapper)
+    {
+      _repo = repo;
+      _mapper = mapper;
+    }
 
-    // public async Task<UserDto> UpdateUser(string userId, UserDto update)
-    // {
-    //   var user = await _repo.GetById(userId);
-    //   user.Name = update.Name;
-    //   user.FirstName = update.FirstName;
-    //   user.DadLastName = update.DadLastName;
-    //   user.MomLastName = update.MomLastName;
-    //   user.Age = update.Age;
-    //   user.Email = update.Email;
-    //   user.City = update.City;
+    // public async Task<User>
 
-    //   await _repo.Update(userId, user);
+    public async Task<UserDto> UpdateUser(int userId, UserDto update)
+    {
+      var user = await _repo.GetInfoById(userId);
+      user.Name = update.Name;
+      user.FirstName = update.FirstName;
+      user.DadLastName = update.DadLastName;
+      user.MomLastName = update.MomLastName;
+      user.Email = update.Email;
+      user.City = update.City;
 
-    //   return update;
-    // }
+      await _repo.UpdateInfo(user);
 
-    // public async Task<UserDto> GetById(string userId) => _mapper.Map<UserDto>(await _repo.GetById(userId));
+      return update;
+    }
+
+    public async Task<UserDto> GetById(int userId) => _mapper.Map<UserDto>(await _repo.GetById(userId));
     
-    // public async Task<List<UserDto>> GetList() => _mapper.Map<List<UserDto>>(await _repo.GetAll());
-    
-    // public async Task Delete(string userId) => await _repo.Delete(userId);
+    public async Task<List<UserDto>> GetList() => _mapper.Map<List<UserDto>>(await _repo.GetAll());
   }
 }
