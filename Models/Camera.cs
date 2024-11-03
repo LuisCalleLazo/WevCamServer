@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using WebCamServer.Models.Templates;
 
 namespace WebCamServer.Models
 {
+  [Table("camera")]
   public class Camera : HistoryModel
   {
     public int Id { get; set; }

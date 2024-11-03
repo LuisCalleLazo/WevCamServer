@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using WebCamServer.Models.Templates;
 
 namespace WebCamServer.Models
 {
+  [Table("notification")]
   public class Notification : HistoryModel
   {
     public int Id { get; set; }

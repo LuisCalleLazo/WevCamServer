@@ -18,10 +18,9 @@ namespace WebCamServer.Services
 
     // public async Task<User>
 
-    public async Task<UserDto> UpdateUser(int userId, UserDto update)
+    public async Task<UserResponseDto> UpdateUser(int userId, UserToUpdateDto update)
     {
       var user = await _repo.GetInfoById(userId);
-      user.Name = update.Name;
       user.FirstName = update.FirstName;
       user.DadLastName = update.DadLastName;
       user.MomLastName = update.MomLastName;
@@ -30,11 +29,11 @@ namespace WebCamServer.Services
 
       await _repo.UpdateInfo(user);
 
-      return update;
+      return _mapper.Map<UserResponseDto>(update);
     }
 
-    public async Task<UserDto> GetById(int userId) => _mapper.Map<UserDto>(await _repo.GetById(userId));
+    public async Task<UserResponseDto> GetById(int userId) => _mapper.Map<UserResponseDto>(await _repo.GetById(userId));
     
-    public async Task<List<UserDto>> GetList() => _mapper.Map<List<UserDto>>(await _repo.GetAll());
+    public async Task<List<UserResponseDto>> GetList() => _mapper.Map<List<UserResponseDto>>(await _repo.GetAll());
   }
 }

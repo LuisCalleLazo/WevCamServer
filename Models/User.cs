@@ -1,9 +1,9 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebCamServer.Models.Templates;
 
 namespace WebCamServer.Models
 {
+  [Table("user")]
   public class User : HistoryModel
   {
     public int Id { get; set; }

@@ -10,10 +10,11 @@ namespace WebCamServer.Services
 {
   public class AuthService : IAuthService
   {
-    // private IUserRepository _userRepo;
-    // private IMapper _mapper;
-    // private readonly IConfiguration _config;
-    // private readonly ITokenRepository _repo;
+    private IUserRepository _userRepo;
+    private IMapper _mapper;
+    private readonly IConfiguration _config;
+    private readonly ITokenRepository _repo;
+    
     // public AuthService( IUserRepository userRepo, IMapper mapper, IConfiguration config, ITokenRepository repo)
     // {
     //   _mapper = mapper;

@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using WebCamServer.Models.Templates;
 
 namespace WebCamServer.Models
 {
+  [Table("missing")]
   public class Missing : HistoryModel
   {
     public int Id { get; set; }

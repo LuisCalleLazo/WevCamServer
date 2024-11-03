@@ -1,11 +1,12 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebCamServer.Models
 {
+  [Table("token")]
   public class Token
   {
-    public string Id { get; set; }
+    public int Id { get; set; }
     public string CurrentToken { get; set;} 
     public string RefreshToken { get; set;} 
     public DateTime CreateDate { get; set;}

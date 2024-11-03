@@ -10,7 +10,7 @@ namespace WebCamServer.Helpers
     public AutoMapperProfiles()
     {
       CreateMap<UserToCreateDto, User>();
-      CreateMap<User, UserDto>();
+      CreateMap<User, UserResponseDto>();
     }
   }
 }
