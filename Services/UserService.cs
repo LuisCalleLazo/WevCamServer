@@ -12,13 +12,17 @@ namespace WebCamServer.Services
   public class UserService : IUserService
   {
     private readonly IUserRepository _repo;
+    private readonly IAdminRepository _adminRepo;
+    private readonly ISeekerRepository _seekerRepo;
     private readonly IMapper _mapper;
     private readonly DataContext _context;
-    public UserService(IUserRepository repo, IMapper mapper, DataContext context)
+    public UserService(IUserRepository repo, IMapper mapper, DataContext context, IAdminRepository adminRepo, ISeekerRepository seekerRepo)
     {
       _repo = repo;
       _mapper = mapper;
       _context = context;
+      _adminRepo = adminRepo;
+      _seekerRepo = seekerRepo;
     }
 
     public UserResponseDto UserResponse(UserInfo userInfo)
@@ -50,6 +54,21 @@ namespace WebCamServer.Services
           user.UserInfoId = userInfo.Id;
 
           await _repo.Create(user);
+
+          switch (create.Type)
+          {
+            case UserType.Admin:
+              await ConvertToAdmin(user.Id);
+              break;
+
+            case UserType.Seeker:
+              await ConvertToSeeker(user.Id);
+              break;
+
+            default:
+              await ConvertToSeeker(user.Id);
+              break;
+          }
 
           await transaction.CommitAsync();
         }
@@ -137,6 +156,20 @@ namespace WebCamServer.Services
       }
 
       return true;
+    }
+
+    public async Task<Admin> ConvertToAdmin(int userId)
+    {
+      var admin = new Admin { UserId = userId };
+      await _adminRepo.Create(admin);
+      return admin;
+    }
+
+    public async Task<Seeker> ConvertToSeeker(int userId)
+    {
+      var seeker = new Seeker { UserId = userId };
+      await _seekerRepo.Create(seeker);
+      return seeker;
     }
   }
 }

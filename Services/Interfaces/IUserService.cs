@@ -1,4 +1,5 @@
 using WebCamServer.Dtos;
+using WebCamServer.Helpers;
 using WebCamServer.Models;
 
 namespace WebCamServer.Services.Interfaces
