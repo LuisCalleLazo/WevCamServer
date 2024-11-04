@@ -32,7 +32,12 @@ namespace WebCamServer.Services
       var response = new AuthResponseDto();
 
       var user = await _userRepo.GetByAuth(auth);
-      response.User = _mapper.Map<UserResponseDto>(user);    
+      var userInfo = await _userRepo.GetInfoById(user.UserInfoId);
+      response.User = _mapper.Map<UserResponseDto>(userInfo);
+      response.User.Id = user.Id;
+      response.User.Name = user.Name;
+      response.User.Email = user.Email;
+      response.User.Age = CalculateAge.Get(userInfo.BirthDate);    
       
       var jwt = _config.GetSection("JwtConfig").Get<AuthJwtDto>();
       if(user == null) return null;

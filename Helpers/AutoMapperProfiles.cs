@@ -14,6 +14,10 @@ namespace WebCamServer.Helpers
       CreateMap<User, UserResponseDto>();
       CreateMap<User, UserInfoDto>();
       CreateMap<UserInfo, UserResponseDto>();
+
+      CreateMap<AuthResponseDto, Token>()
+        .ForMember(dest => dest.User, opt => opt.Ignore());;
+      CreateMap<Token, AuthResponseDto>();
     }
   }
 }

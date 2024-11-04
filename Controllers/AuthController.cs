@@ -9,7 +9,7 @@ using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Controllers
 {
-  [Route("api/user")]
+  [Route("api/v1/auth")]
   [ApiController]
   public class AuthController : ControllerBase
   {
