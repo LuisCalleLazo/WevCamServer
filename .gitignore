@@ -13,6 +13,8 @@ tasks.json
 launch.json
 Dim.pdf
 *.pdf
+.sonarqube
+/IA/DetectFace/shape_predictor_68_face_landmarks.dat
 LICENSE.txt
 /Temp/*.xlsx
 /Temp/*.pdf
