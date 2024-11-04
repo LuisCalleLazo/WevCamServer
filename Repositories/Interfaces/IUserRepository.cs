@@ -13,7 +13,7 @@ namespace WebCamServer.Repositories.Interfaces
     Task<User> GetByEmail(string email);
     Task<List<User>> GetAll();
     Task<List<User>> GetAllDel();
-    Task Create(User create, Guid salt);
+    Task Create(User create);
     Task Update(User update);
     Task Drop(User user);
 

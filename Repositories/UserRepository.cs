@@ -83,10 +83,8 @@ namespace WebCamServer.Repositories
         .Include(u => u.UserInfo)
         .ToListAsync();
 
-    public async Task Create(User create, Guid salt)
-    {
-      create.PasswordSalt = salt;
-      
+    public async Task Create(User create)
+    { 
       await _context.Users.AddAsync(create);
       await _context.SaveChangesAsync();
     }

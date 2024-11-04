@@ -11,20 +11,20 @@ namespace WebCamServer.Config
   {
     public static void LoadRepositories(IServiceCollection services)
     {
-      // services.AddScoped<IUserRepository, UserRepository>();
-      // services.AddScoped<ITokenRepository, TokenRepository>();
-      // services.AddScoped<ICameraRepository, CameraRepository>();
-      // services.AddScoped<ICameraHomeRepository, CameraHomeRepository>();
-      // services.AddScoped<ICameraActivityRepository, CameraActivityRepository>();
+      services.AddScoped<IUserRepository, UserRepository>();
+      services.AddScoped<ITokenRepository, TokenRepository>();
+      services.AddScoped<ICameraRepository, CameraRepository>();
+      services.AddScoped<ICameraHomeRepository, CameraHomeRepository>();
+      services.AddScoped<ICameraActivityRepository, CameraActivityRepository>();
     }
 
     public static void LoadServices(IServiceCollection services)
     {
-      // services.AddScoped<IAuthService, AuthService>();
-      // services.AddScoped<IDetectIAService, DetectIAService>();
-      // services.AddScoped<ICameraService, CameraService>();
-      // services.AddScoped<IControlsService, ControlsService>();
-      // services.AddScoped<IUserService, UserService>();
+      services.AddScoped<IAuthService, AuthService>();
+      services.AddScoped<IDetectIAService, DetectIAService>();
+      services.AddScoped<ICameraService, CameraService>();
+      services.AddScoped<IControlsService, ControlsService>();
+      services.AddScoped<IUserService, UserService>();
     }
   }
 }

@@ -51,20 +51,20 @@ namespace WebCamServer.Controllers
     //   }
     // }
     
-    // [HttpGet("{userId}")]
-    // public async Task<IActionResult> GetUser(string userId)
-    // {
-    //   try
-    //   {
-    //     var user = await _service.GetById(userId);
-    //     return Ok(user);
-    //   }catch(Exception err)
-    //   {
-    //     _logger.LogTrace(err.StackTrace);
-    //     _logger.LogError(err.Message);
-    //     return BadRequest("Algo fallo al traer usuario");
-    //   }
-    // }
+    [HttpGet("{userId}")]
+    public async Task<IActionResult> GetUser(int userId)
+    {
+      try
+      {
+        var user = await _service.GetById(userId);
+        return Ok(user);
+      }catch(Exception err)
+      {
+        _logger.LogTrace(err.StackTrace);
+        _logger.LogError(err.Message);
+        return BadRequest("Algo fallo al traer usuario");
+      }
+    }
 
     // [HttpGet("list")]
     // public async Task<IActionResult> GetListUser()
