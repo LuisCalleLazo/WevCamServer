@@ -10,11 +10,15 @@ namespace WebCamServer.Services
   public class MissingService : IMissingService
   {
     private readonly IMissingRepository _repo;
+    private readonly IDetectIAService _detectIAServ;
+    private readonly IFileService _fileServ;
     private readonly IMapper _mapper;
-    public MissingService(IMissingRepository repo, IMapper mapper)
+    public MissingService(IMissingRepository repo, IMapper mapper, IDetectIAService detectIAServ, IFileService fileServ)
     {
       _repo = repo;
       _mapper = mapper;
+      _detectIAServ = detectIAServ;
+      _fileServ = fileServ;
     }
 
     public async Task<MissingResponseDto> RegisterMissing(MissingToCreateDto create)
@@ -23,24 +27,43 @@ namespace WebCamServer.Services
       await _repo.Create(created);
       return _mapper.Map<MissingResponseDto>(created);
     }
-
     
-    public async Task<bool> ValidatePhotos(IFormFile[] photos, MissingPhotosType type)
+    public bool ValidatePhotos(IFormFile[] photos, MissingPhotosType type, int userId, int missingId)
     {
-      
-      switch (type)
-      {
-        case MissingPhotosType.Left:
-          break;
-          
-        case MissingPhotosType.Rigth:
-          break;
 
-        case MissingPhotosType.Front:
-          break;
-        
-        default:
-          break;
+      string pathPhotos = Path.Combine(Directory.GetCurrentDirectory(), $"Missing/{userId}/{missingId}/{type}");
+      string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
+      
+      if (Directory.Exists(pathPhotos))
+      {
+        string[] files = Directory.GetFiles(pathPhotos);
+        foreach (var file in files)
+        {
+          string result = _detectIAServ.DetectFacePose(file);
+          if(result != file_type) return false;   
+        }
+      }
+      else return false;
+
+      return true;
+    }
+
+    public async Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos)
+    {
+      var photos = missingPhotos.Photos;
+
+      string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
+      for (int i = 0; i < photos.Length; i++)
+      {
+        var savePhotos = new MissingToSaveDto
+        {
+          File = photos[i],
+          Type = type,
+          MissingId = missingPhotos.MissingId,
+          UserId = missingPhotos.UserId,
+          NameFile = $"{i}_face_{file_type}",
+        };
+        await _fileServ.UploadLocalFile(savePhotos);
       }
 
       return true;

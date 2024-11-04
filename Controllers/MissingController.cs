@@ -44,17 +44,23 @@ namespace WebCamServer.Controllers
     }
 
     [HttpPost("photos/{type}")]
-    public async Task<ActionResult> UploadImagesMissing(MissingPhotosType type, [FromForm] IFormFile[] photos)
+    public async Task<ActionResult> UploadImagesMissing(MissingPhotosType type, [FromForm] MissingToPhotosDto missingData)
     {
     
       try
       {
+        var photos = missingData.Photos;
+
         for (int i = 0; i < photos.Length; i++)
         {
           if(!ValidateFile.IsImageFormatValid(photos[i])) 
             return BadRequest("Una imagen no tiene el formato correcto");
         }
-        var validate = await _service.ValidatePhotos(photos, type);
+
+        var saved = await _service.SavePhotosMissing(type, missingData);
+        if(!saved) return BadRequest("No se pudo guardar bien las imagenes");
+
+        var validate = _service.ValidatePhotos(photos, type, missingData.UserId, missingData.MissingId);
         
         if(!validate) BadRequest("Al menos 1 foto no es de rostro de la persona");
 
