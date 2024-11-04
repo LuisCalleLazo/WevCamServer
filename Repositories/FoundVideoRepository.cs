@@ -1,12 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using usr_service.Data;
 using WebCamServer.Models;
+using WebCamServer.Repositories.Interfaces;
 
 namespace WebCamServer.Repositories
 {
-  public class FoundVideoRepository
+  public class FoundVideoRepository : IFoundVideoRepository
   {
-        private readonly DataContext _context;
+    private readonly DataContext _context;
     public FoundVideoRepository(DataContext context)
     {
       _context = context;

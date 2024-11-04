@@ -14,6 +14,15 @@ namespace WebCamServer.Config
       services.AddScoped<IUserRepository, UserRepository>();
       services.AddScoped<ITokenRepository, TokenRepository>();
       services.AddScoped<ICameraRepository, CameraRepository>();
+      services.AddScoped<ICommentRepository, CommentRepository>();
+      services.AddScoped<IVideoPublicationRepository, VideoPublicationRepository>();
+      services.AddScoped<IAdminRepository, AdminRepository>();
+      services.AddScoped<IFoundVideoRepository, FoundVideoRepository>();
+      services.AddScoped<IMissingRepository, MissingRepository>();
+      services.AddScoped<INotificationRepository, NotificationRepository>();
+      services.AddScoped<ISeekerRepository, SeekerRepository>();
+      services.AddScoped<IContactsRepository, ContactsRepository>();
+
     }
 
     public static void LoadServices(IServiceCollection services)
