@@ -14,14 +14,7 @@ namespace WebCamServer.Repositories
     }
 
     public async Task<Notification> GetById(int id) =>
-      await _context.Notifications
-        .Where(x => x.Id == id && x.DeleteAt == DateTime.MinValue)
-        .FirstOrDefaultAsync();
-        
-    public async Task<Notification> GetByIdDel(int id) =>
-      await _context.Notifications
-        .Where(x => x.Id == id && x.DeleteAt != DateTime.MinValue)
-        .FirstOrDefaultAsync();
+      await _context.Notifications.FirstOrDefaultAsync(x => x.Id == id);
 
     public async Task<List<Notification>> GetList(int userId) =>
       await _context.Notifications

@@ -8,6 +8,7 @@ namespace WebCamServer.Services.Interfaces
   {
     Task<UserResponseDto> Create(UserToCreateDto create);
     Task<UserResponseDto> UpdateUser(int userId, UserToUpdateDto update);
+    Task<bool> UserExist(int userId);
     Task<UserResponseDto> GetById(int userId);
     // Task<List<UserDto>> GetList();
     // Task Delete(string userId);

@@ -15,9 +15,10 @@ namespace WebCamServer.Repositories
     }
     
     public async Task<Admin> GetById(int id) =>
-      await _context.Admins
-        .Where(c => c.Id == id)
-        .FirstOrDefaultAsync();
+      await _context.Admins.FirstOrDefaultAsync(c => c.Id == id);
+
+    public async Task<Admin> GetByUserId(int userId) =>
+      await _context.Admins.FirstOrDefaultAsync(c => c.UserId == userId);
         
     public async Task<List<Admin>> GetList() =>
       await _context.Admins

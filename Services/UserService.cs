@@ -100,6 +100,16 @@ namespace WebCamServer.Services
       return UserResponse(updated);
     }
 
+    public async Task<bool> UserExist(int userId)
+    {
+      var user = await _repo.GetById(userId);
+
+      if (user == null) return true;
+      if(user.DeleteAt != DateTime.MinValue) return true;
+
+      return false;
+    }
+
     public async Task<UserResponseDto> GetById(int userId) 
     {
       var user = await _repo.GetById(userId);
@@ -137,12 +147,17 @@ namespace WebCamServer.Services
     {
       
       var user = await _repo.GetById(userId);
+      var admin = await _adminRepo.GetByUserId(userId);
+      var seeker = await _seekerRepo.GetByUserId(userId);
       var userInfo = await _repo.GetInfoById(user.UserInfoId);
 
       using (var transaction = await _context.Database.BeginTransactionAsync())
       {
         try
         {
+          if(admin != null) await _adminRepo.Drop(admin);
+          if(seeker != null) await _seekerRepo.Drop(seeker);;
+
           await _repo.Drop(user);
           await _repo.DropInfo(userInfo);
 

@@ -1,5 +1,6 @@
 using AutoMapper;
 using WebCamServer.Dtos;
+using WebCamServer.Dtos.Notification;
 using WebCamServer.Models;
 
 
@@ -18,6 +19,10 @@ namespace WebCamServer.Helpers
       CreateMap<AuthResponseDto, Token>()
         .ForMember(dest => dest.User, opt => opt.Ignore());;
       CreateMap<Token, AuthResponseDto>();
+
+      CreateMap<Notification, NotificationToListDto>();
+      CreateMap<Notification, NotificationDetailDto>();
+      CreateMap<NotificationToCreateDto, Notification>();
     }
   }
 }

@@ -32,6 +32,7 @@ namespace WebCamServer.Config
       services.AddScoped<ICameraService, CameraService>();
       services.AddScoped<IControlsService, ControlsService>();
       services.AddScoped<IUserService, UserService>();
+      services.AddScoped<INotificationService, NotificationService>();
     }
   }
 }
