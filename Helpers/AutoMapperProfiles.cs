@@ -23,6 +23,9 @@ namespace WebCamServer.Helpers
       CreateMap<Notification, NotificationToListDto>();
       CreateMap<Notification, NotificationDetailDto>();
       CreateMap<NotificationToCreateDto, Notification>();
+
+      CreateMap<MissingToCreateDto, Missing>();
+      CreateMap<Missing, MissingResponseDto>();
     }
   }
 }

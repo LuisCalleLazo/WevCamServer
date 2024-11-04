@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebCamServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+428903eb1bd9a69134dd30cee0eb12ae29069a42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52a8c6e53d79372215e41ed45d62c23a99afeec2")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebCamServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebCamServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

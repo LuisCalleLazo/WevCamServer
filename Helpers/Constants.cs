@@ -4,4 +4,9 @@ namespace WebCamServer.Helpers
   {
     Admin, Seeker
   }
+
+  public enum MissingPhotosType
+  {
+    Left, Rigth, Front
+  }
 }
