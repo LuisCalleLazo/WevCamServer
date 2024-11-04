@@ -1,6 +1,0 @@
-projectKey=WebCamServEmbebidos
-serverUrl=http://localhost:9000
-serverVersion=10.7.0.96327
-dashboardUrl=http://localhost:9000/dashboard?id=WebCamServEmbebidos
-ceTaskId=094f04bb-5448-48b1-8b61-f1b87492830d
-ceTaskUrl=http://localhost:9000/api/ce/task?id=094f04bb-5448-48b1-8b61-f1b87492830d
