@@ -52,16 +52,13 @@ namespace WebCamServer.Controllers
       try
       {
 
-        // if(await _userServ.GetByName(create.Name) != null)
-        //   return BadRequest("El nombre ya esta registrado");
-
+        if(await _userServ.ExistName(create.Name))
+          return BadRequest("El nombre ya esta registrado");
           
-        // if(await _userServ.GetByEmail(create.Email) != null)
-        //   return BadRequest("El email ya esta registrado");
-
+        if(await _userServ.ExistEmail(create.Email))
+          return BadRequest("El email ya esta registrado");
 
         var response =  await _service.RegisterUser(create);
-
         
         return Ok(response);
       }

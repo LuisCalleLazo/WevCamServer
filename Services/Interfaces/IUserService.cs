@@ -12,5 +12,8 @@ namespace WebCamServer.Services.Interfaces
     // Task Delete(string userId);
     Task<UserResponseDto> GetByName(string name);
     Task<UserResponseDto> GetByEmail(string email);
+    Task<bool> ExistName(string name);
+    Task<bool> ExistEmail(string email);
+    Task<bool> Drop(int userId);
   }
 }

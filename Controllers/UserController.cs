@@ -23,6 +23,13 @@ namespace WebCamServer.Controllers
     {
       try
       {
+        if(await _service.ExistName(create.Name))
+          return BadRequest("El nombre ya esta registrado");
+
+          
+        if(await _service.ExistEmail(create.Email))
+          return BadRequest("El email ya esta registrado");
+
         var user = await _service.Create(create);
         return Ok(user);
       }catch(Exception err)
@@ -79,20 +86,20 @@ namespace WebCamServer.Controllers
     //   }
     // }
     
-    // [HttpDelete("{userId}")]
-    // public async Task<IActionResult> DeleteUser(string userId)
-    // {
-    //   try
-    //   {
-    //     await _service.Delete(userId);
-    //     return Ok("Eliminado correctamente");
-    //   }catch(Exception err)
-    //   {
-    //     _logger.LogTrace(err.StackTrace);
-    //     _logger.LogError(err.Message);
-    //     return BadRequest("Algo fallo al eliminar al usuario");
-    //   }
-    // }
+    [HttpDelete("{userId}")]
+    public async Task<IActionResult> DeleteUser(int userId)
+    {
+      try
+      {
+        await _service.Drop(userId);
+        return Ok("Eliminado correctamente");
+      }catch(Exception err)
+      {
+        _logger.LogTrace(err.StackTrace);
+        _logger.LogError(err.Message);
+        return BadRequest("Algo fallo al eliminar al usuario");
+      }
+    }
 
   }
 }
