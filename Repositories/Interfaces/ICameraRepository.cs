@@ -4,10 +4,12 @@ namespace WebCamServer.Repositories.Interfaces
 {
   public interface ICameraRepository
   {
-    // Task<List<Camera>> GetAll();
-    // Task<Camera> GetById(string id);
-    // Task Create(Camera newEntity);
-    // Task Update(string id, Camera updatedEntity);
-    // Task Delete(string id);
+    Task<Camera> GetByCode(string code);
+    Task<List<Camera>> GetListDel();
+    Task<List<Camera>> GetList();
+    Task<Camera> GetById(int id);
+    Task Create(Camera create);
+    Task Update(Camera update);
+    Task Drop(Camera drop);
   }
 }

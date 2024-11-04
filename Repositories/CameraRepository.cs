@@ -1,5 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using MongoDB.Driver;
+using usr_service.Data;
 using WebCamServer.Helpers;
 using WebCamServer.Models;
 using WebCamServer.Repositories.Interfaces;
@@ -8,38 +9,47 @@ namespace WebCamServer.Repositories
 {
   public class CameraRepository : ICameraRepository
   {
-    // private readonly IMongoCollection<Camera> _coll;
+    private readonly DataContext _context;
 
-    // public CameraRepository(IMongoClient mongoClient, IOptions<MongoDbSettings> settings)
-    // {
-    //   var database = mongoClient.GetDatabase(settings.Value.DatabaseName);
-    //   _coll = database.GetCollection<Camera>("Camera");
-    // }
+    public CameraRepository(DataContext context)
+    {
+      _context = context;
+    }
 
-    // public async Task<List<Camera>> GetAll()
-    // {
-    //   return await _coll.Find(_ => true).ToListAsync();
-    // }
+    public async Task<Camera> GetByCode(string code) =>
+      await _context.Cameras
+        .FirstOrDefaultAsync(x => x.Code == code);
+        
+    public async Task<Camera> GetById(int id) =>
+      await _context.Cameras.FirstOrDefaultAsync(x => x.Id == id);
 
-    // public async Task<Camera> GetById(string id)
-    // {
-    //   return await _coll.Find(entity => entity.Id == id).FirstOrDefaultAsync();
-    // }
+    public async Task<List<Camera>> GetList() =>
+      await _context.Cameras
+        .Where(x => x.DeleteAt == DateTime.MinValue)
+        .ToListAsync();
+        
+    public async Task<List<Camera>> GetListDel() =>
+      await _context.Cameras
+        .Where(x => x.DeleteAt != DateTime.MinValue)
+        .ToListAsync();
 
-    // public async Task Create(Camera newEntity)
-    // {
-    //   await _coll.InsertOneAsync(newEntity);
-    // }
+    public async Task Create(Camera create)
+    {
+      await  _context.Cameras.AddAsync(create);
+      await _context.SaveChangesAsync();
+    }
 
-    // public async Task Update(string id, Camera updatedEntity)
-    // {
-    //   await _coll.ReplaceOneAsync(entity => entity.Id == id, updatedEntity);
-    // }
+    public async Task Update(Camera update)
+    {
+      _context.Cameras.Update(update);
+      await _context.SaveChangesAsync();
+    }
 
-    // public async Task Delete(string id)
-    // {
-    //   await _coll.DeleteOneAsync(entity => entity.Id == id);
-    // }
+    public async Task Drop(Camera drop)
+    { 
+      _context.Cameras.Remove(drop);
+      await _context.SaveChangesAsync();
+    }
 
   }
 }
