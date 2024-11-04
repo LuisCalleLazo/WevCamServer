@@ -5,7 +5,8 @@ namespace WebCamServer.Services.Interfaces
 {
   public interface IUserService
   {
-    // Task<UserDto> UpdateUser(string userId, UserDto update);
+    Task<UserResponseDto> Create(UserToCreateDto create);
+    Task<UserResponseDto> UpdateUser(int userId, UserToUpdateDto update);
     Task<UserResponseDto> GetById(int userId);
     // Task<List<UserDto>> GetList();
     // Task Delete(string userId);

@@ -5,6 +5,8 @@ using WebCamServer.Dtos;
 using WebCamServer.Repositories.Interfaces;
 using AutoMapper;
 using WebCamServer.Security;
+using usr_service.Data;
+using WebCamServer.Helpers;
 
 namespace WebCamServer.Services
 {
@@ -12,15 +14,17 @@ namespace WebCamServer.Services
   {
     private IUserRepository _userRepo;
     private IMapper _mapper;
+    private DataContext _context;
     private readonly IConfiguration _config;
     private readonly ITokenRepository _repo;
     
-    public AuthService( IUserRepository userRepo, IMapper mapper, IConfiguration config, ITokenRepository repo)
+    public AuthService( IUserRepository userRepo, IMapper mapper, IConfiguration config, ITokenRepository repo, DataContext context)
     {
       _mapper = mapper;
       _config = config;
       _userRepo = userRepo;
       _repo = repo;
+      _context = context;
     }
 
     public async Task<AuthResponseDto> Authentication(AuthLoginDto auth)
@@ -28,7 +32,7 @@ namespace WebCamServer.Services
       var response = new AuthResponseDto();
 
       var user = await _userRepo.GetByAuth(auth);
-      response.User = _mapper.Map<UserInfoDto>(user);    
+      response.User = _mapper.Map<UserResponseDto>(user);    
       
       var jwt = _config.GetSection("JwtConfig").Get<AuthJwtDto>();
       if(user == null) return null;
@@ -55,7 +59,7 @@ namespace WebCamServer.Services
 
       var user = await _userRepo.GetById(idUser);
 
-      response.User = _mapper.Map<UserInfoDto>(user);
+      response.User = _mapper.Map<UserResponseDto>(user);
       response.CurrentToken = Jwt.GenerateToken(jwt, user);
       response.RefreshToken = Jwt.GenerateRefreshToken();
 
@@ -64,6 +68,7 @@ namespace WebCamServer.Services
 
       return response;
     }
+
     public async Task<AuthResponseDto> RegisterUser(UserToCreateDto register)
     {
       var response = new AuthResponseDto();
@@ -77,12 +82,31 @@ namespace WebCamServer.Services
       user.Password = PasswordHash.HashPassword(register.Password, salt);
       user.PasswordSalt = salt;
 
-      await _userRepo.CreateInfo(userInfo);
-      user.UserInfoId = userInfo.Id;
+      using (var transaction = await _context.Database.BeginTransactionAsync())
+      {
+        try
+        {
+          await _userRepo.CreateInfo(userInfo);
+          user.UserInfoId = userInfo.Id;
 
-      await _userRepo.Create(user);
+          await _userRepo.Create(user);
+
+          await transaction.CommitAsync();
+        }
+        catch (Exception)
+        {
+          await transaction.RollbackAsync();
+          throw;
+        }
+      }
+
+      var userResponse = _mapper.Map<UserResponseDto>(userInfo);
+      userResponse.Id = user.Id;
+      userResponse.Email = user.Email;
+      userResponse.Name = user.Name;
+      userResponse.Age = CalculateAge.Get(userResponse.BirthDate);
       
-      response.User = _mapper.Map<UserInfoDto>(user);
+      response.User = userResponse;
       response.CurrentToken = Jwt.GenerateToken(jwt, user);
       response.RefreshToken = Jwt.GenerateRefreshToken();
 
