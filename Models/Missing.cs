@@ -7,7 +7,6 @@ namespace WebCamServer.Models
   public class Missing : HistoryModel
   {
     public int Id { get; set; }
-    public string DirPhotos { get; set; }
     public DateTime BirthDate { get; set; }
     public string FullName { get; set; }
     public double Size { get; set; }
