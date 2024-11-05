@@ -30,9 +30,8 @@ namespace WebCamServer.Services
     
     public bool ValidatePhotos(IFormFile[] photos, MissingPhotosType type, int userId, int missingId)
     {
-
-      string pathPhotos = Path.Combine(Directory.GetCurrentDirectory(), $"Missing/{userId}/{missingId}/{type}");
       string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
+      string pathPhotos = Path.Combine(Directory.GetCurrentDirectory(), $"Missing/{userId}/{missingId}/{file_type}");
       
       if (Directory.Exists(pathPhotos))
       {
@@ -40,7 +39,8 @@ namespace WebCamServer.Services
         foreach (var file in files)
         {
           string result = _detectIAServ.DetectFacePose(file);
-          if(result != file_type) return false;   
+          Console.WriteLine($"Resultado: {result}, El Tipo es: {file_type}");
+          if(result != file_type) return false; 
         }
       }
       else return false;
@@ -54,14 +54,14 @@ namespace WebCamServer.Services
 
       string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
       for (int i = 0; i < photos.Length; i++)
-      {
+      { 
         var savePhotos = new MissingToSaveDto
         {
           File = photos[i],
           Type = type,
           MissingId = missingPhotos.MissingId,
           UserId = missingPhotos.UserId,
-          NameFile = $"{i}_face_{file_type}",
+          NameFile = photos[i].FileName,
         };
         await _fileServ.UploadLocalFile(savePhotos);
       }

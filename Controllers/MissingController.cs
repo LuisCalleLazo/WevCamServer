@@ -61,8 +61,7 @@ namespace WebCamServer.Controllers
         if(!saved) return BadRequest("No se pudo guardar bien las imagenes");
 
         var validate = _service.ValidatePhotos(photos, type, missingData.UserId, missingData.MissingId);
-        
-        if(!validate) BadRequest("Al menos 1 foto no es de rostro de la persona");
+        if(!validate) return BadRequest("Al menos 1 foto no es de rostro de la persona");
 
         return Ok("Se registro exitosamente");
       }

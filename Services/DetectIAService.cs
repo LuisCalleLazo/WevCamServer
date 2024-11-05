@@ -15,24 +15,24 @@ namespace WebCamServer.Services
 
     public string DetectFacePose(string imagePath)
     {
-      string pythonExePath = @"python";
-      string scriptPath = Path.Combine(Directory.GetCurrentDirectory(), ConstantsValueSystem.NameFilePythonDetectFacePose());
+      string pythonExePath = "python";
+      string scriptPath = Path.Combine(Directory.GetCurrentDirectory(), ConstantsValueSystem.NameFolderPython(), "DetectFace/detect_face_pose.py");
 
-      // Configurar el proceso
       var psi = new ProcessStartInfo
       {
         FileName = pythonExePath,
         Arguments = $"{scriptPath} {imagePath}",
         RedirectStandardOutput = true,
-        UseShellExecute = false,
-        CreateNoWindow = true
+        UseShellExecute = false
       };
-
-      using var process = Process.Start(psi);
-      using var reader = process.StandardOutput;
-      string result = reader.ReadToEnd().Trim();
-
-      return result;  // Resultado será "left", "right", "front" o "unknown"
+      using (Process process = Process.Start(psi))
+      {
+        using (StreamReader reader = process.StandardOutput)
+        {
+          string result = reader.ReadToEnd();
+          return result.Trim();
+        }
+      }
     }
 
   }

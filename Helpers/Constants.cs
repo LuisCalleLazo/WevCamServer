@@ -12,7 +12,7 @@ namespace WebCamServer.Helpers
 
   public static class ConstantsValueSystem
   {
-    public static string NameFilePythonDetectFacePose() => "IA/DetectFace/detect_face_pose.py";
+    public static string NameFolderPython() => "IA";
 
     public static string GetStrMissingPhotosType(MissingPhotosType type)
     {
