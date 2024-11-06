@@ -27,7 +27,6 @@ def detect_pose(image_path):
         
         # Calcula los puntos clave para determinar la orientación
         nose = landmarks.part(30)
-        nose = landmarks.part(30)
         left_eye = landmarks.part(43)
         right_eye = landmarks.part(40)
 
@@ -59,6 +58,5 @@ def detect_pose(image_path):
       print(f"Ocurrió un error inesperado: {e}")
 
 
-if __name__ == "__main__":
-  image_path = sys.argv[1]
-  print(detect_pose(image_path))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+print(detect_pose(os.path.join(current_dir, "front.jpg")))
