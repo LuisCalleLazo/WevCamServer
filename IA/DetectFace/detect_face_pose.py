@@ -27,14 +27,16 @@ def detect_pose(image_path):
         
         # Calcula los puntos clave para determinar la orientación
         nose = landmarks.part(30)
-        left_eye = landmarks.part(36)
-        right_eye = landmarks.part(45)
+        left_eye = landmarks.part(43)
+        right_eye = landmarks.part(40)
         
         # Calcular la pose basándose en los landmarks
         if nose.x < left_eye.x:
             return "right"
+        
         elif nose.x > right_eye.x:
             return "left"
+        
         else:
             return "front"
 

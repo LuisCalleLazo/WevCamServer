@@ -48,6 +48,31 @@ namespace WebCamServer.Services
       return true;
     }
 
+    public bool RemovePhotosError(int userId, int missingId)
+    {
+      string path = Path.Combine(Directory.GetCurrentDirectory(), $"Missing/{userId}/{missingId}");
+      try
+      {
+        // Elimina la carpeta y su contenido
+        if (Directory.Exists(path))
+        {
+          Directory.Delete(path, true);
+          Console.WriteLine("La carpeta ha sido eliminada exitosamente.");
+          return true;
+        }
+        else
+        {
+          Console.WriteLine("La carpeta no existe.");
+          return false;
+        }
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine("Error al eliminar la carpeta: " + ex.Message);
+        return false;
+      }
+    }
+
     public async Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos)
     {
       var photos = missingPhotos.Photos;
@@ -58,7 +83,7 @@ namespace WebCamServer.Services
         var savePhotos = new MissingToSaveDto
         {
           File = photos[i],
-          Type = type,
+          Type = file_type,
           MissingId = missingPhotos.MissingId,
           UserId = missingPhotos.UserId,
           NameFile = photos[i].FileName,

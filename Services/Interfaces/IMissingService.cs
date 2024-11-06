@@ -8,5 +8,6 @@ namespace WebCamServer.Services.Interfaces
     Task<MissingResponseDto> RegisterMissing(MissingToCreateDto create);
     bool ValidatePhotos(IFormFile[] photos, MissingPhotosType type, int userId, int missingId);
     Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos);
+    bool RemovePhotosError(int userId, int missingId);
   }
 }

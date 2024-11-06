@@ -30,6 +30,6 @@ namespace WebCamServer.Dtos
     public int UserId { get; set; }
     public int MissingId { get; set; }
     public string NameFile { get; set; }
-    public MissingPhotosType Type { get; set; }
+    public string Type { get; set; }
   }
 }

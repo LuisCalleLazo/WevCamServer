@@ -51,6 +51,12 @@ namespace WebCamServer.Controllers
       {
         var photos = missingData.Photos;
 
+        // if( !(photos.Length >= 0 && photos.Length <5) ) 
+        //   return BadRequest("Tiene que ver al menos 5 fotos");
+
+        // if( photos.Length > 15 )
+        //   return BadRequest("Son demasiadas archivos, maximo 15");
+
         for (int i = 0; i < photos.Length; i++)
         {
           if(!ValidateFile.IsImageFormatValid(photos[i])) 
@@ -58,10 +64,17 @@ namespace WebCamServer.Controllers
         }
 
         var saved = await _service.SavePhotosMissing(type, missingData);
-        if(!saved) return BadRequest("No se pudo guardar bien las imagenes");
+        if(!saved) 
+          return BadRequest("No se pudo guardar bien las imagenes");
 
         var validate = _service.ValidatePhotos(photos, type, missingData.UserId, missingData.MissingId);
-        if(!validate) return BadRequest("Al menos 1 foto no es de rostro de la persona");
+        if(!validate)
+        {
+          var removed = _service.RemovePhotosError(missingData.UserId, missingData.MissingId);
+          if(!removed) return BadRequest("Hubo un error con sus fotografias al ser guardadas");
+
+          return BadRequest("Al menos 1 foto no es de rostro de la persona");
+        } 
 
         return Ok("Se registro exitosamente");
       }

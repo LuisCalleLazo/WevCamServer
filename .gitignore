@@ -23,3 +23,5 @@ LICENSE.txt
 *.csv
 ./vscode
 .env
+
+/Missing

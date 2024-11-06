@@ -22,7 +22,7 @@ namespace WebCamServer.Helpers
           return "left";
           
         case MissingPhotosType.Rigth:
-          return "rigth";
+          return "right";
 
         case MissingPhotosType.Front:
           return "front";
