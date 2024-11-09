@@ -38,6 +38,9 @@ builder.Services.AddSwaggerGen();
 // TODO: Swagger with google authentication
 builder.Services.ConfigureSwagger();
 
+// TODO: Configuracion de autenticación
+builder.Services.ConfigureAuth(builder);
+
 var app = builder.Build();
 
 
@@ -55,8 +58,8 @@ app.UseWebSockets();;
 app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
  
-// app.UseAuthentication();
-// app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
