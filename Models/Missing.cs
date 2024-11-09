@@ -14,6 +14,11 @@ namespace WebCamServer.Models
     public string  LastSeenMap { get; set; }
     public bool Found { get; set; }
     public int SeekerId { get; set; }
+    
+    // PHOTOS
+    public bool PhotosFront { get; set; }
+    public bool PhotosLeft { get; set; }
+    public bool PhotosRigth { get; set; }
 
     // todo: References
     public virtual Seeker Seeker { get; set; }

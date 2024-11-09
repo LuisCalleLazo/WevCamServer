@@ -127,6 +127,15 @@ namespace usr_service.Data
           .WithMany( p => p.Missings)
           .HasForeignKey( p => p.SeekerId)
           .IsRequired();
+
+        tb.Property(p => p.PhotosFront)
+          .HasDefaultValue(false);
+          
+        tb.Property(p => p.PhotosLeft)
+          .HasDefaultValue(false);
+          
+        tb.Property(p => p.PhotosRigth)
+          .HasDefaultValue(false);
       });
 
     }

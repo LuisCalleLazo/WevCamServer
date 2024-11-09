@@ -50,8 +50,8 @@ namespace WebCamServer.Controllers
     {
       var user_id = User.FindFirst("id")?.Value;
       if(user_id == null) Unauthorized("El usuario no es reconocido");
-      var userId = Int32.Parse(user_id);
-      Console.WriteLine(user_id);
+      int userId = Int32.Parse(user_id);
+      
       try
       {
         var photos = missingData.Photos;
