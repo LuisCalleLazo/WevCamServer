@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
-using WebCamServer.Helpers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace WebCamServer.Dtos
 {
@@ -21,7 +22,6 @@ namespace WebCamServer.Dtos
   {
     public IFormFile[] Photos { get; set; }
     public int MissingId { get; set; }
-    public int UserId { get; set; }
   }
 
   public class MissingToSaveDto

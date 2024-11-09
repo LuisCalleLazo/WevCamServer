@@ -14,7 +14,12 @@ namespace WebCamServer.Services
 
     public async Task UploadLocalFile(MissingToSaveDto save)
     {
-      var path = Path.Combine(Directory.GetCurrentDirectory(), $"Missing/{save.UserId}/{save.MissingId}/{save.Type}", save.NameFile);
+      var path = Path.Combine(
+        Directory.GetCurrentDirectory(), 
+        ConstantsValueSystem.NameFolderMissigns(),
+        $"{save.UserId}/{save.MissingId}/{save.Type}", 
+        save.NameFile
+      );
 
       Directory.CreateDirectory(Path.GetDirectoryName(path));
 

@@ -28,10 +28,14 @@ namespace WebCamServer.Services
       return _mapper.Map<MissingResponseDto>(created);
     }
     
-    public bool ValidatePhotos(IFormFile[] photos, MissingPhotosType type, int userId, int missingId)
+    public bool ValidatePhotos(MissingPhotosType type, int userId, int missingId)
     {
       string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
-      string pathPhotos = Path.Combine(Directory.GetCurrentDirectory(), $"Missing/{userId}/{missingId}/{file_type}");
+      string pathPhotos = Path.Combine(
+        Directory.GetCurrentDirectory(),
+        ConstantsValueSystem.NameFolderMissigns(), 
+        $"{userId}/{missingId}/{file_type}"
+      );
       
       if (Directory.Exists(pathPhotos))
       {
@@ -50,7 +54,11 @@ namespace WebCamServer.Services
 
     public bool RemovePhotosError(int userId, int missingId)
     {
-      string path = Path.Combine(Directory.GetCurrentDirectory(), $"Missing/{userId}/{missingId}");
+      string path = Path.Combine(
+        Directory.GetCurrentDirectory(), 
+        ConstantsValueSystem.NameFolderMissigns(),
+        $"{userId}/{missingId}"
+      );
       try
       {
         // Elimina la carpeta y su contenido
@@ -73,7 +81,7 @@ namespace WebCamServer.Services
       }
     }
 
-    public async Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos)
+    public async Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos, int userId)
     {
       var photos = missingPhotos.Photos;
 
@@ -85,8 +93,8 @@ namespace WebCamServer.Services
           File = photos[i],
           Type = file_type,
           MissingId = missingPhotos.MissingId,
-          UserId = missingPhotos.UserId,
-          NameFile = photos[i].FileName,
+          UserId = userId,
+          NameFile = $"missing_{file_type}_{i}{Path.GetExtension(photos[i].FileName)}",
         };
         await _fileServ.UploadLocalFile(savePhotos);
       }

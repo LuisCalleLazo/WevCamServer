@@ -13,6 +13,7 @@ namespace WebCamServer.Helpers
   public static class ConstantsValueSystem
   {
     public static string NameFolderPython() => "IA";
+    public static string NameFolderMissigns() => "wwwroot/Missing";
 
     public static string GetStrMissingPhotosType(MissingPhotosType type)
     {

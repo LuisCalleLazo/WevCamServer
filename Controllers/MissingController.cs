@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos;
 using WebCamServer.Helpers;
@@ -10,6 +11,7 @@ using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Controllers
 {
+  [Authorize]
   [Route("api/v1/missing")]
   [ApiController]
   public class MissingController : ControllerBase
@@ -46,7 +48,10 @@ namespace WebCamServer.Controllers
     [HttpPost("photos/{type}")]
     public async Task<ActionResult> UploadImagesMissing(MissingPhotosType type, [FromForm] MissingToPhotosDto missingData)
     {
-    
+      var user_id = User.FindFirst("id")?.Value;
+      if(user_id == null) Unauthorized("El usuario no es reconocido");
+      var userId = Int32.Parse(user_id);
+      Console.WriteLine(user_id);
       try
       {
         var photos = missingData.Photos;
@@ -63,14 +68,14 @@ namespace WebCamServer.Controllers
             return BadRequest("Una imagen no tiene el formato correcto");
         }
 
-        var saved = await _service.SavePhotosMissing(type, missingData);
+        var saved = await _service.SavePhotosMissing(type, missingData, userId);
         if(!saved) 
           return BadRequest("No se pudo guardar bien las imagenes");
 
-        var validate = _service.ValidatePhotos(photos, type, missingData.UserId, missingData.MissingId);
+        var validate = _service.ValidatePhotos(type, userId, missingData.MissingId);
         if(!validate)
         {
-          var removed = _service.RemovePhotosError(missingData.UserId, missingData.MissingId);
+          var removed = _service.RemovePhotosError(userId, missingData.MissingId);
           if(!removed) return BadRequest("Hubo un error con sus fotografias al ser guardadas");
 
           return BadRequest("Al menos 1 foto no es de rostro de la persona");
