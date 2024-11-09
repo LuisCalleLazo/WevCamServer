@@ -79,7 +79,11 @@ namespace WebCamServer.Controllers
           if(!removed) return BadRequest("Hubo un error con sus fotografias al ser guardadas");
 
           return BadRequest("Al menos 1 foto no es de rostro de la persona");
-        } 
+        }
+
+        var updated = await _service.UpdatePhotosMissing(missingData.MissingId, type);
+
+        if(!updated) return BadRequest("Se guardaron las fotos, pero no se actualizo el registro");
 
         return Ok("Se registro exitosamente");
       }

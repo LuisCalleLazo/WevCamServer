@@ -20,6 +20,31 @@ namespace WebCamServer.Services
       _detectIAServ = detectIAServ;
       _fileServ = fileServ;
     }
+    public async Task<bool> UpdatePhotosMissing(int missingId, MissingPhotosType type)
+    {
+      var missing = await _repo.GetById(missingId);
+      
+      switch (type)
+      {
+        case MissingPhotosType.Front:
+          missing.PhotosFront = true;
+          break;
+        
+        case MissingPhotosType.Rigth:
+          missing.PhotosRigth = true;
+          break;
+        
+        case MissingPhotosType.Left:
+          missing.PhotosLeft = true;
+          break;
+        
+        default: return false;
+      }
+
+      await _repo.Update(missing);
+
+      return true;      
+    }
 
     public async Task<MissingResponseDto> RegisterMissing(MissingToCreateDto create)
     {
