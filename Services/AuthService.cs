@@ -26,19 +26,17 @@ namespace WebCamServer.Services
       _repo = repo;
       _context = context;
     }
-
-    public async Task<AuthResponseDto> Authentication(AuthLoginDto auth)
+    public async Task<AuthResponseDto> Authentication(User user)
     {
       var response = new AuthResponseDto();
 
-      var user = await _userRepo.GetByAuth(auth);
       var userInfo = await _userRepo.GetInfoById(user.UserInfoId);
       response.User = _mapper.Map<UserResponseDto>(userInfo);
       response.User.Id = user.Id;
       response.User.Name = user.Name;
       response.User.Email = user.Email;
-      response.User.Age = CalculateAge.Get(userInfo.BirthDate);    
-      
+      response.User.Age = CalculateAge.Get(userInfo.BirthDate);  
+
       var jwt = _config.GetSection("JwtConfig").Get<AuthJwtDto>();
       if(user == null) return null;
 
@@ -49,6 +47,11 @@ namespace WebCamServer.Services
       await _repo.CreateToken(_mapper.Map<Token>(response), user, jwt.TimeValidMin);
       return response;
     }
+    public async Task<AuthResponseDto> Login(AuthLoginDto auth)
+    {
+      var user = await _userRepo.GetByAuth(auth);
+      return await Authentication(user);
+    }
 
     public async Task<bool> ValidateRefreshToken(AuthRefreshTokenDto auth, int idUser)
     {
@@ -57,21 +60,11 @@ namespace WebCamServer.Services
       else return true;
     }
 
-    public async Task<AuthResponseDto> RefreshToken(AuthRefreshTokenDto auth, int idUser)
+    public async Task<AuthResponseDto> RefreshToken(int idUser)
     {
-      var response = new AuthResponseDto();
-      var jwt = _config.GetSection("JwtConfig").Get<AuthJwtDto>();
-
       var user = await _userRepo.GetById(idUser);
 
-      response.User = _mapper.Map<UserResponseDto>(user);
-      response.CurrentToken = Jwt.GenerateToken(jwt, user);
-      response.RefreshToken = Jwt.GenerateRefreshToken();
-
-      await _repo.DesactiveToken(user.Id);
-      await _repo.CreateToken(_mapper.Map<Token>(response), user, jwt.TimeValidMin);
-
-      return response;
+      return await Authentication(user);
     }
 
     public async Task<AuthResponseDto> RegisterUser(UserToCreateDto register)

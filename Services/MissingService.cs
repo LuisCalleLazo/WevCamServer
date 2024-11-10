@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos;
 using WebCamServer.Helpers;
 using WebCamServer.Models;
@@ -110,6 +111,14 @@ namespace WebCamServer.Services
     {
       var photos = missingPhotos.Photos;
 
+      string path = Path.Combine(
+        Directory.GetCurrentDirectory(), 
+        ConstantsValueSystem.NameFolderMissigns(),
+        $"{userId}/{missingPhotos.MissingId}"
+      );
+        
+      if (Directory.Exists(path)) Directory.Delete(path, true);
+
       string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
       for (int i = 0; i < photos.Length; i++)
       { 
@@ -127,5 +136,20 @@ namespace WebCamServer.Services
       return true;
     }
 
+    public async Task<List<MissingToListDto>> GetListMissings(int seekerId) =>
+      _mapper.Map<List<MissingToListDto>>(await _repo.GetList(seekerId));
+
+    public async Task<List<FileContentResult>> GetListFilesMissing(int userId, int missingId,MissingPhotosType type)
+    {
+      string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
+      string folderPath = Path.Combine(
+        Directory.GetCurrentDirectory(), 
+        ConstantsValueSystem.NameFolderMissigns(),
+        $"{userId}/{missingId}/{file_type}"
+      );
+
+      return await _fileServ.GetFilesOfFolder(folderPath);
+    }
+    
   }
 }

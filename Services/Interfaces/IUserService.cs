@@ -17,5 +17,9 @@ namespace WebCamServer.Services.Interfaces
     Task<bool> ExistName(string name);
     Task<bool> ExistEmail(string email);
     Task<bool> Drop(int userId);
+
+
+    // Seeker
+    Task<Seeker> GetSeekerByUserId(int userId);
   }
 }

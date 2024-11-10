@@ -5,9 +5,10 @@ namespace WebCamServer.Services.Interfaces
 {
   public interface IAuthService
   {
-    Task<AuthResponseDto> Authentication(AuthLoginDto auth);
+    Task<AuthResponseDto> Authentication(User user);
+    Task<AuthResponseDto> Login(AuthLoginDto auth);
     Task<bool> ValidateRefreshToken(AuthRefreshTokenDto auth, int idUser);
-    // Task<AuthResponseDto> RefreshToken(AuthRefreshTokenRequestDto auth, string idUser);
+    Task<AuthResponseDto> RefreshToken(int idUser);
     Task<AuthResponseDto> RegisterUser(UserToCreateDto create);
   }
 }

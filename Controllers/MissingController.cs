@@ -17,10 +17,12 @@ namespace WebCamServer.Controllers
   public class MissingController : ControllerBase
   {
     private string message_error = "Hubo un error, consulte con el administrador";
+    private readonly IUserService _userServ;
     private readonly IMissingService _service;
     private readonly ILogger<MissingController> _logger;
-    public MissingController(IMissingService service, ILogger<MissingController> logger)
+    public MissingController(IMissingService service, ILogger<MissingController> logger, IUserService userServ)
     {
+      _userServ = userServ;
       _service = service;
       _logger = logger;
     }
@@ -30,6 +32,12 @@ namespace WebCamServer.Controllers
     {
       try
       {
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+        int userId = Int32.Parse(user_id);
+
+        var seeker = await _userServ.GetSeekerByUserId(userId);
+        create.SeekerId = seeker.Id;
         var response =  await _service.RegisterMissing(create);
 
         if(response == null)
@@ -95,7 +103,56 @@ namespace WebCamServer.Controllers
       }
     }
     
-    
+    [HttpGet]
+    public async Task<IActionResult> GetMissingsOfSeeker()
+    {
+      try
+      {
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+        int userId = Int32.Parse(user_id);
 
+        var seeker = await _userServ.GetSeekerByUserId(userId);
+        if(seeker == null) return BadRequest("No eres Seeker");
+        
+        var response =  await _service.GetListMissings(seeker.Id);
+
+        if(response == null)
+          return BadRequest("No existen datos");
+        
+        return Ok(response);
+      }
+      catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }
+
+    [HttpGet("{missing_id}/{type}")]
+    public async Task<IActionResult> GetMissingsFiles(int missing_id, MissingPhotosType type)
+    {
+      try
+      {
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+        int userId = Int32.Parse(user_id);
+        
+        var fileResults = new List<FileContentResult>();
+        var response =  await _service.GetListFilesMissing(userId, missing_id, type);
+
+        if(response == null)
+          return BadRequest("No existen datos");
+        
+        return Ok(response);
+      }
+      catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }
   }
 }

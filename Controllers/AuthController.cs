@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace WebCamServer.Controllers
     {
       try
       {
-        var response =  await _service.Authentication(auth);
+        var response =  await _service.Login(auth);
 
         if(response == null)
           return BadRequest("Credenciales incorrectas!!");
@@ -69,5 +70,34 @@ namespace WebCamServer.Controllers
         return BadRequest(message_error);
       }
     }
+    
+    [HttpPost("refresh-token")]
+    public async Task<IActionResult> RefreshToken([FromBody] AuthRefreshTokenDto refresh)
+    {
+      try
+      {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var tokenExpired = tokenHandler.ReadJwtToken(refresh.TokenExpired);
+
+        if(tokenExpired.ValidTo > DateTime.UtcNow)
+          return BadRequest("Token no ha expirado");
+
+        int IdUser = Int32.Parse(tokenExpired.Claims.First(x => x.Type == "id").Value);
+
+        if(!await _service.ValidateRefreshToken(refresh, IdUser))
+          return BadRequest("El token y refresh token son invalidos");
+
+        var authResponse = await _service.RefreshToken(IdUser);
+        
+        return Ok(authResponse);
+        
+      }catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }
+
   }
 }

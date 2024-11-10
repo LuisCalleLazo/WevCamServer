@@ -22,6 +22,7 @@ namespace WebCamServer.Repositories
       token.User = user;
       token.CreateDate = DateTime.UtcNow;
       token.ExpiredDate = DateTime.UtcNow.AddMinutes(timeValidMin);
+      token.Active =  true;
 
       await _context.Tokens.AddAsync(token);
       await _context.SaveChangesAsync();

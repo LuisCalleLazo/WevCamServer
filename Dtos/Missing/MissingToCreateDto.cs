@@ -6,11 +6,15 @@ namespace WebCamServer.Dtos
 {
   public class MissingToCreateDto : MissingDetailDto
   {
+    
+    [JsonIgnore]
     public DateTime CreateAt { get; set; }
-    public int SeekerId { get; set; }
     
     [JsonIgnore]
     public string DirPhotos { get; set; }
+    
+    [JsonIgnore]
+    public int SeekerId { get; set; }
     
     public MissingToCreateDto()
     {

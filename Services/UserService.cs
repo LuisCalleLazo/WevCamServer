@@ -186,5 +186,8 @@ namespace WebCamServer.Services
       await _seekerRepo.Create(seeker);
       return seeker;
     }
+
+    public async Task<Seeker> GetSeekerByUserId(int userId) =>
+      await _seekerRepo.GetByUserId(userId);
   }
 }

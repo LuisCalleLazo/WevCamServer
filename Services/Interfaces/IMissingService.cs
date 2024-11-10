@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos;
 using WebCamServer.Helpers;
 
@@ -10,5 +11,7 @@ namespace WebCamServer.Services.Interfaces
     Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos, int userId);
     bool RemovePhotosError(int userId, int missingId);
     Task<bool> UpdatePhotosMissing(int missingId, MissingPhotosType type);
+    Task<List<MissingToListDto>> GetListMissings(int seekerId);
+    Task<List<FileContentResult>> GetListFilesMissing(int userId, int missingId,MissingPhotosType type);
   }
 }
