@@ -131,7 +131,7 @@ namespace WebCamServer.Controllers
     }
 
     [HttpGet("{missing_id}/{type}")]
-    public async Task<IActionResult> GetMissingsFiles(int missing_id, MissingPhotosType type)
+    public async Task<IActionResult> GetMissingsFilesZip(int missing_id, MissingPhotosType type)
     {
       try
       {
@@ -140,12 +140,12 @@ namespace WebCamServer.Controllers
         int userId = Int32.Parse(user_id);
         
         var fileResults = new List<FileContentResult>();
-        var response =  await _service.GetListFilesMissing(userId, missing_id, type);
+        var response =  await _service.GetZipFilesMissing(userId, missing_id, type);
 
         if(response == null)
           return BadRequest("No existen datos");
         
-        return Ok(response);
+        return File(response, "application/zip", "files_missing.zip");
       }
       catch(Exception err)
       {

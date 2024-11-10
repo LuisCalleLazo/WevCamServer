@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos.Notification;
 using WebCamServer.Services.Interfaces;
@@ -49,12 +45,16 @@ namespace WebCamServer.Controllers
       }
     }
     
-    [HttpGet("{user_id}")]
-    public async Task<ActionResult> GetNotification(int user_id)
+    [HttpGet]
+    public async Task<ActionResult> GetNotification()
     {
       try
       {
-        var response =  await _service.GetList(user_id);
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+        int userId = Int32.Parse(user_id);
+
+        var response =  await _service.GetList(userId);
 
         if(response.Count == 0)
           return Ok("No hay notificaciones");

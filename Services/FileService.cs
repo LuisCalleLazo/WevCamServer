@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos;
 using WebCamServer.Helpers;
 using WebCamServer.Services.Interfaces;
+using System.IO.Compression;
 
 namespace WebCamServer.Services
 {
@@ -71,5 +72,34 @@ namespace WebCamServer.Services
       }
       return fileResults;
     } 
+
+    public async Task<byte[]> GetZipOfFilesOfFolder(string folder)
+    {
+
+      using (var memoryStream = new MemoryStream())
+      {
+        using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
+        {
+          var files = Directory.GetFiles(folder);
+
+          foreach (var filePath in files)
+          {
+            var fileName = Path.GetFileName(filePath);
+            var zipEntry = archive.CreateEntry(fileName, CompressionLevel.Fastest);
+
+            using (var entryStream = zipEntry.Open())
+            using (var fileStream = File.OpenRead(filePath))
+            {
+              // Copiar el contenido del archivo en la entrada ZIP
+              await fileStream.CopyToAsync(entryStream);
+            }
+          }
+        }
+
+        // Reiniciar la posición del memoryStream para que se lea desde el inicio
+        memoryStream.Position = 0;
+        return memoryStream.ToArray();
+      }
+    }
   }
 }

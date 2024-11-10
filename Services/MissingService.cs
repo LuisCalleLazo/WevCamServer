@@ -139,7 +139,7 @@ namespace WebCamServer.Services
     public async Task<List<MissingToListDto>> GetListMissings(int seekerId) =>
       _mapper.Map<List<MissingToListDto>>(await _repo.GetList(seekerId));
 
-    public async Task<List<FileContentResult>> GetListFilesMissing(int userId, int missingId,MissingPhotosType type)
+    public async Task<byte[]> GetZipFilesMissing(int userId, int missingId,MissingPhotosType type)
     {
       string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
       string folderPath = Path.Combine(
@@ -148,7 +148,7 @@ namespace WebCamServer.Services
         $"{userId}/{missingId}/{file_type}"
       );
 
-      return await _fileServ.GetFilesOfFolder(folderPath);
+      return await _fileServ.GetZipOfFilesOfFolder(folderPath);
     }
     
   }

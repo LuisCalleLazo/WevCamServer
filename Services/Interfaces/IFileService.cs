@@ -7,5 +7,6 @@ namespace WebCamServer.Services.Interfaces
   {
     Task UploadLocalFile(MissingToSaveDto save);
     Task<List<FileContentResult>> GetFilesOfFolder(string folder);
+    Task<byte[]> GetZipOfFilesOfFolder(string folder);
   }
 }
