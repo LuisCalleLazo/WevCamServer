@@ -128,6 +128,9 @@ namespace usr_service.Data
           .HasForeignKey( p => p.SeekerId)
           .IsRequired();
 
+        tb.Property(p => p.Gender)
+          .HasDefaultValue(true);
+
         tb.Property(p => p.PhotosFront)
           .HasDefaultValue(false);
           
