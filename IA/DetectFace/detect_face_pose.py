@@ -27,7 +27,6 @@ def detect_pose(image_path):
         
         # Calcula los puntos clave para determinar la orientación
         nose = landmarks.part(30)
-        nose = landmarks.part(30)
         left_eye = landmarks.part(43)
         right_eye = landmarks.part(40)
 
@@ -35,7 +34,10 @@ def detect_pose(image_path):
         range_eye_rigth = abs(nose.x - right_eye.x)
 
         promed = abs(range_eye_left - range_eye_rigth)
+
+        # Constante limite para rango de angulo de rostro
         constant = 30
+        
         # Calcular la pose basándose en los landmarks
         if range_eye_left > range_eye_rigth and promed > constant:
             return "right"
