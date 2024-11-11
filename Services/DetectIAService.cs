@@ -34,6 +34,18 @@ namespace WebCamServer.Services
         }
       }
     }
+    
+    // ToDo: Realizar compracion de embeddings con FaceNet     
+    public bool CompareEmbeddings(string embedding, string[] references)
+    {
+      return true;
+    }
+
+    // ToDo: Realizar Generacion de Embeddings con FaceNet de todas las imagenes obtenidas
+    public async Task<string> GenerateEmbeddingAsync(string imagePath)
+    {
+      return string.Empty;
+    }
 
   }
 }

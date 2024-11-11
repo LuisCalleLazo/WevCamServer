@@ -7,10 +7,10 @@ using WebCamServer.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.WebHost.ConfigureKestrel(serverOptions =>
-// {
-//   serverOptions.Listen(System.Net.IPAddress.Any, 5000);  // HTTP
-// });
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+  serverOptions.Listen(System.Net.IPAddress.Any, 5000);  // HTTP
+});
 
 builder.Services.Configure<CloudinarySettings>
   (builder.Configuration.GetSection("CloudinarySettings"));

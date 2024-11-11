@@ -7,12 +7,10 @@ using WebCamServer.Services.Interfaces;
 public class StreamController : ControllerBase
 {
   private readonly ICameraService _camServ;
-  private readonly IControlsService _conServ;
 
-  public StreamController(ICameraService camServ, IControlsService conServ)
+  public StreamController(ICameraService camServ)
   {
     _camServ = camServ;
-    _conServ = conServ;
   }
 
   [HttpGet("camera/esp32-cam")]
@@ -36,20 +34,6 @@ public class StreamController : ControllerBase
     {
       WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
       await _camServ.WatchCamera(webSocket);
-    }
-    else
-    {
-      HttpContext.Response.StatusCode = 400;
-    }
-  }
-  
-  [HttpGet("controls-camera")]
-  public async Task WsControls()
-  {
-    if (HttpContext.WebSockets.IsWebSocketRequest)
-    {
-      WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-      await _conServ.ControlsOfCamera(webSocket);
     }
     else
     {

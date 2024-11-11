@@ -30,11 +30,15 @@ namespace WebCamServer.Config
       services.AddScoped<IAuthService, AuthService>();
       services.AddScoped<IDetectIAService, DetectIAService>();
       services.AddScoped<ICameraService, CameraService>();
-      services.AddScoped<IControlsService, ControlsService>();
       services.AddScoped<IUserService, UserService>();
       services.AddScoped<INotificationService, NotificationService>();
       services.AddScoped<IMissingService, MissingService>();
       services.AddScoped<IFileService, FileService>();
+
+      // Algoritmo de colas
+      services.AddSingleton<TaskQueue>();
+      // Ejecucion en segundo plano
+      services.AddHostedService<AnalysisBackgroundService>();
     }
   }
 }
