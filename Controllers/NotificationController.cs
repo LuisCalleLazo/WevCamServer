@@ -1,3 +1,5 @@
+using System.Net.WebSockets;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos.Notification;
 using WebCamServer.Services.Interfaces;
@@ -12,21 +14,28 @@ namespace WebCamServer.Controllers
     
     private string message_error = "Hubo un error, consulte con el administrador";
     private readonly IUserService _userServ;
+    private readonly IAuthService _authServ;
     private readonly INotificationService _service;
     private readonly ILogger<NotificationController> _logger;
-    public NotificationController(INotificationService service, ILogger<NotificationController> logger, IUserService userServ)
+    public NotificationController(INotificationService service, ILogger<NotificationController> logger, IUserService userServ, IAuthService authServ)
     {
       _service = service;
       _logger = logger;
       _userServ = userServ;
+      _authServ = authServ;
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult> CreateNotification([FromBody] NotificationToCreateDto create)
     {
       try
       {
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+        int userId = Int32.Parse(user_id);
 
+        create.UserId = userId;
         if(await _userServ.UserExist(create.UserId)) 
           return BadRequest("No existe el usuario");
 
@@ -69,6 +78,38 @@ namespace WebCamServer.Controllers
         _logger.LogError(err.Message);
         Console.WriteLine(err.StackTrace);
         return BadRequest(message_error);
+      }
+    }
+    
+    [HttpGet("socket")]
+    public async Task NotificationSocket()
+    {
+      try
+      {
+        if (HttpContext.WebSockets.IsWebSocketRequest)
+        {
+          // Extraer el token de los parámetros de consulta
+          var token = HttpContext.Request.Headers["token"].ToString();
+          var userId = _authServ.ValidateToken(token);
+          
+          if (userId == 0)
+          {
+            HttpContext.Response.StatusCode = 401; // No autorizado
+            return;
+          }
+
+          WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
+          await _service.NotificationConnection(webSocket, userId);
+        }
+        else
+        {
+          HttpContext.Response.StatusCode = 400;
+        }
+      }
+      catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
       }
     }
 

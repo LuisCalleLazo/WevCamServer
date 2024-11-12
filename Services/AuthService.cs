@@ -110,5 +110,12 @@ namespace WebCamServer.Services
 
       return response;
     }
+
+    public int ValidateToken(string token)
+    {
+      var jwt = _config.GetSection("JwtConfig").Get<AuthJwtDto>();
+      var result =  Jwt.ValidateAndGetUserIdFromToken(token, jwt);
+      return result;
+    }
   }
 }

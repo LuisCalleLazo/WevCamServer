@@ -57,5 +57,34 @@ namespace WebCamServer.Security
 
       return refreshToken;
     }
+    public static int ValidateAndGetUserIdFromToken(string token, AuthJwtDto jwt)
+    {
+      try
+      {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var key = Encoding.UTF8.GetBytes(jwt.Key);
+
+        var validationParameters = new TokenValidationParameters
+        {
+          ValidateIssuerSigningKey = true,
+          IssuerSigningKey = new SymmetricSecurityKey(key),
+          ValidateIssuer = false,
+          ValidateAudience = false,
+          ClockSkew = TimeSpan.Zero
+        };
+
+        var principal = tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
+        var jwtToken = (JwtSecurityToken)validatedToken;
+
+        var userIdClaim = jwtToken.Claims.FirstOrDefault(x => x.Type == "id");
+        return userIdClaim != null ? int.Parse(userIdClaim.Value) : 0;
+      }
+      catch
+      {
+        Console.WriteLine("ALGO SALIO MAL");
+        // Retornar null si el token no es válido
+        return 0;
+      }
+    }
   }
 }

@@ -10,5 +10,6 @@ namespace WebCamServer.Services.Interfaces
     Task<bool> ValidateRefreshToken(AuthRefreshTokenDto auth, int idUser);
     Task<AuthResponseDto> RefreshToken(int idUser);
     Task<AuthResponseDto> RegisterUser(UserToCreateDto create);
+    int ValidateToken(string token);
   }
 }
