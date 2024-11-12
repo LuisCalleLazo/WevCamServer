@@ -80,7 +80,7 @@ namespace WebCamServer.Controllers
         if(!saved) 
           return BadRequest("No se pudo guardar bien las imagenes");
 
-        var validate = _service.ValidatePhotos(type, userId, missingData.MissingId);
+        var validate = await _service.ValidatePhotos(type, userId, missingData.MissingId);
         if(!validate)
         {
           var removed = _service.RemovePhotosError(userId, missingData.MissingId);

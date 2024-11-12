@@ -10,6 +10,11 @@ namespace WebCamServer.Helpers
     Left, Rigth, Front
   }
 
+  public enum ResultPredictionType
+  {
+    Nothing, Found, NotFound
+  }
+
   public static class ConstantsValueSystem
   {
     public static string NameFolderPython() => "IA";

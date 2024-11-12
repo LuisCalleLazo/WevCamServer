@@ -54,7 +54,7 @@ namespace WebCamServer.Services
       return _mapper.Map<MissingResponseDto>(created);
     }
     
-    public bool ValidatePhotos(MissingPhotosType type, int userId, int missingId)
+    public async Task<bool> ValidatePhotos(MissingPhotosType type, int userId, int missingId)
     {
       string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
       string pathPhotos = Path.Combine(
@@ -68,7 +68,7 @@ namespace WebCamServer.Services
         string[] files = Directory.GetFiles(pathPhotos);
         foreach (var file in files)
         {
-          string result = _detectIAServ.DetectFacePose(file);
+          string result = await _detectIAServ.DetectFacePose(file);
           Console.WriteLine($"Resultado: {result}, El Tipo es: {file_type}");
           if(result != file_type) return false; 
         }

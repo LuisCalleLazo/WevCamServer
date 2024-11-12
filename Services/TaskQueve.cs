@@ -5,7 +5,6 @@ namespace WebCamServer.Services
 {
   public class TaskNewQueue
   {
-    // Cola para almacenar personas desaparecidas en espera de análisis
     private ConcurrentQueue<MissingPersonTask> _queue = new ConcurrentQueue<MissingPersonTask>();
 
     public void Enqueue(MissingPersonTask task)
@@ -13,28 +12,21 @@ namespace WebCamServer.Services
       _queue.Enqueue(task);
     }
 
-    public bool TryDequeue(out MissingPersonTask task)
-    {
-      return _queue.TryDequeue(out task);
-    }
+    public bool TryDequeue(out MissingPersonTask task) => _queue.TryDequeue(out task);
 
     public bool IsEmpty => _queue.IsEmpty;
   }
+
   public class TaskOldQueue
   {
-    // Cola para almacenar personas desaparecidas en espera de análisis
     private ConcurrentQueue<MissingPersonTask> _queue = new ConcurrentQueue<MissingPersonTask>();
 
     public void Enqueue(MissingPersonTask task)
     {
       _queue.Enqueue(task);
     }
-
-    public bool TryDequeue(out MissingPersonTask task)
-    {
-      return _queue.TryDequeue(out task);
-    }
-
+    public bool TryDequeue(out MissingPersonTask task) => _queue.TryDequeue(out task);
+    
     public bool IsEmpty => _queue.IsEmpty;
   }
 }

@@ -1,5 +1,6 @@
 using WebCamServer.Dtos;
 using WebCamServer.Services.Interfaces;
+using WebCamServer.Helpers;
 
 namespace WebCamServer.Services
 {
@@ -7,47 +8,56 @@ namespace WebCamServer.Services
   {
     private readonly TaskOldQueue _taskOldQueue;
     private readonly TaskNewQueue _taskNewQueue;
-    private readonly IDetectIAService _iaService;
+    private readonly IServiceScopeFactory _scopeFactory;
 
     public AnalysisBackgroundService(
       TaskNewQueue taskNewQueue,
-      TaskOldQueue taskOldQueue, 
-      IDetectIAService iaService)
+      TaskOldQueue taskOldQueue,
+      IServiceScopeFactory scopeFactory)
     {
       _taskNewQueue = taskNewQueue;
       _taskOldQueue = taskOldQueue;
-      _iaService = iaService;
+      _scopeFactory = scopeFactory;
     }
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+      var tasks = new List<Task>();
+
       while (!stoppingToken.IsCancellationRequested)
       {
         if (_taskOldQueue.TryDequeue(out var task))
         {
-          // Procesar la persona desaparecida
-          await ProcessMissingPersonTask(task);
+          // Inicia el procesamiento de las imágenes de esta persona en paralelo
+          tasks.Add(ProcessMissingPersonTask(task)); 
+        }
+        
+        if (_taskNewQueue.TryDequeue(out var taskNew))
+        {
+          tasks.Add(ProcessMissingPersonTask(taskNew));
+        }
+
+        // Esperar un intervalo si no hay tareas para procesar
+        if (tasks.Count > 0)
+        {
+          await Task.WhenAll(tasks); // Ejecuta todas las tareas en paralelo
+          tasks.Clear(); // Limpia la lista para nuevas tareas
         }
         else
         {
-          // Esperar un intervalo antes de volver a verificar la cola
-          await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
+          await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken); // Espera antes de volver a intentar
         }
       }
     }
+
     private async Task ProcessMissingPersonTask(MissingPersonTask task)
     {
-      // Obtener las imágenes para analizar
-      foreach (var imagePath in task.ImagePaths)
+      using (var scope = _scopeFactory.CreateScope())
       {
-        // Generar el embedding de la imagen nueva
-        var embedding = await _iaService.GenerateEmbeddingAsync(imagePath);
+        var iaService = scope.ServiceProvider.GetRequiredService<IDetectIAService>();
 
-        // Comparar el embedding con los de la persona desaparecida
-        if (_iaService.CompareEmbeddings(embedding, task.ReferenceEmbeddings))
+        if (await iaService.PredictFace("Imagen a analizar.jpg", task.PathModel) == ResultPredictionType.Found)
         {
-          // Si hay coincidencia, notificar y marcar como encontrada
-          // task.MarkAsFound();
-          break;
+          task.MarkAsFound();
         }
       }
     }

@@ -27,20 +27,24 @@ namespace WebCamServer.Config
 
     public static void LoadServices(IServiceCollection services)
     {
-      services.AddScoped<IAuthService, AuthService>();
-      services.AddScoped<IDetectIAService, DetectIAService>();
-      services.AddScoped<ICameraService, CameraService>();
-      services.AddScoped<IUserService, UserService>();
-      services.AddScoped<INotificationService, NotificationService>();
-      services.AddScoped<IMissingService, MissingService>();
-      services.AddScoped<IFileService, FileService>();
+      // Ejecucion en segundo plano
+      services.AddHostedService<AnalysisBackgroundService>();
 
       // Algoritmos de colas
       services.AddSingleton<TaskNewQueue>();
       services.AddSingleton<TaskOldQueue>();
 
-      // Ejecucion en segundo plano
-      services.AddHostedService<AnalysisBackgroundService>();
+      // Servicios de corta vida
+      services.AddScoped<IDetectIAService, DetectIAService>();
+      services.AddScoped<IAuthService, AuthService>();
+      services.AddScoped<ICameraService, CameraService>();
+      services.AddScoped<IUserService, UserService>();
+      services.AddScoped<INotificationService, NotificationService>();
+      services.AddScoped<IMissingService, MissingService>();
+      services.AddScoped<IFileService, FileService>();
+      
+
+
     }
   }
 }
