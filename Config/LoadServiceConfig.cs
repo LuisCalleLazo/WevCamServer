@@ -35,8 +35,10 @@ namespace WebCamServer.Config
       services.AddScoped<IMissingService, MissingService>();
       services.AddScoped<IFileService, FileService>();
 
-      // Algoritmo de colas
-      services.AddSingleton<TaskQueue>();
+      // Algoritmos de colas
+      services.AddSingleton<TaskNewQueue>();
+      services.AddSingleton<TaskOldQueue>();
+
       // Ejecucion en segundo plano
       services.AddHostedService<AnalysisBackgroundService>();
     }

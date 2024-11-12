@@ -1,38 +1,38 @@
 import face_recognition
 import numpy as np
+from pathlib import Path
+import os
 
-def obtener_embeddings(imagen_paths):
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+def get_embeddings(imagen_paths):
   """
   Carga imágenes desde las rutas dadas y obtiene los embeddings de los rostros en cada una.
   """
   embeddings = []
-  etiquetas = []
+  tags = []
   
   for path, etiqueta in imagen_paths:
-    # Cargar imagen
     imagen = face_recognition.load_image_file(path)
-    
-    # Obtener embeddings de los rostros detectados
     encoding = face_recognition.face_encodings(imagen)
     
     if encoding:
-      embeddings.append(encoding[0])  # Usar el primer rostro encontrado
-      etiquetas.append(etiqueta)  # Etiqueta: 1 si es "Pepe", 0 si no lo es
+      embeddings.append(encoding[0])
+      tags.append(etiqueta)
   
-  return np.array(embeddings), np.array(etiquetas)
+  return np.array(embeddings), np.array(tags)
 
-# Definir rutas y etiquetas de imágenes de entrenamiento (1 para "Pepe", 0 para otros)
-imagenes_entrenamiento = [
-    ("person_image_demo/aurora1.jpg", 1),
-    ("person_image_demo/aurora3.jpg", 1),
-    ("person_image_demo/aurora4.jpg", 1),
-    ("person_image_demo/aurora5.png", 1),
-    ("person_image_demo/no_aurora1.jpg", 0),
-    ("person_image_demo/no_aurora2.jpg", 0),
-    ("person_image_demo/no_aurora3.jpg", 0),
-    ("person_image_demo/no_aurora4.jpg", 0),
-  # Agrega más imágenes según sea necesario
-]
 
-# Obtener embeddings y etiquetas
-X_train, y_train = obtener_embeddings(imagenes_entrenamiento)
+def define_training_images(folder_training):
+  folder = Path(folder_training)
+  # Usamos glob para buscar archivos con extensiones específicas
+  images = list(folder.glob("*.jpg")) + list(folder.glob("*.png")) + list(folder.glob("*.jpeg"))
+  # Convertimos las rutas a cadenas de texto
+  images = [str(imagen) for imagen in images]
+  return images
+
+
+
+def get_training_XY(folder_training : str):
+  images_training = define_training_images(folder_training)
+  X_train, y_train = get_embeddings(images_training)
+  return X_train, y_train

@@ -16,6 +16,7 @@ namespace WebCamServer.Models
     public bool Gender { get; set; } // Masculino true, Femenino false
     public bool Found { get; set; }
     public int SeekerId { get; set; }
+    public string NameModel { get; set; }
     
     // PHOTOS
     public bool PhotosFront { get; set; }

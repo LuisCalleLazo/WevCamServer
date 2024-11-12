@@ -1,41 +1,46 @@
 
+from keras._tf_keras.keras.models import load_model
 import face_recognition
 import numpy as np
 import os
+import sys
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-def predecir_si_es_pepe(modelo, imagen_paths):
-    """
-    Dada una lista de rutas de imágenes, predice si contienen a "Pepe".
-    """
-    resultados = {}
-    
-    for path in imagen_paths:
-        imagen = face_recognition.load_image_file(path)
-        encoding = face_recognition.face_encodings(imagen)
+
+
+def predict_face(model, image_path):
+  
+  """
+  Dada una lista de rutas de imágenes, predice si contienen a "la cara de la persona del modelo".
+  """
+
+  result = ""
+  image = face_recognition.load_image_file(image_path)
+  encoding = face_recognition.face_encodings(image)
+  
+  if encoding:
+    prediction = model.predict(np.array([encoding[0]]))
+    is_face = prediction[0][0] > 0.5  # Umbral: si > 0.5, es Persona desaparecida
+    result = is_face
+  else:
+    result = None
+
+  return result
+
         
-        if encoding:
-            prediction = modelo.predict(np.array([encoding[0]]))
-            es_pepe = prediction[0][0] > 0.5  # Umbral: si > 0.5, es "Pepe"
-            resultados[path] = es_pepe
-        else:
-            resultados[path] = None  # No se detectó rostro en la imagen
-    
-    return resultados
+def predict_face_model(image_path, model_path):
+  modelo = load_model(model_path)
+  result = predict_face(modelo, image_path)
 
-# Lista de nuevas imágenes para verificar
-imagenes_a_verificar = [
-    "images_predict/aurora_predict2.jpg",
-]
+  if result is None: # No hay ningun rostro
+      return 0
+  elif result: # Se encontro el rostro
+     return 1
+  else:  # Hay rostro pero no es la persona que se busca
+    return 2
+  
 
-from keras._tf_keras.keras.models import load_model
-
-modelo = load_model("modelo_aurora.keras")
-# Predecir si "Aurora" aparece en cada imagen
-resultados = predecir_si_es_pepe(modelo, imagenes_a_verificar)
-for imagen, es_pepe in resultados.items():
-    if es_pepe is None:
-        print(f"No se detectó rostro en la imagen: {imagen}")
-    elif es_pepe:
-        print(f"Se detectó a 'Aurora' en la imagen: {imagen}")
-    else:
-        print(f"'Aurora' no aparece en la imagen: {imagen}")
+if __name__ == "__main__":
+  image_path = sys.argv[1]
+  model_path = sys.argv[2]
+  predict_face_model(image_path, model_path)
