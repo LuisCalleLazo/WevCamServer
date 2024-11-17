@@ -1,4 +1,3 @@
-import sys
 import cv2
 import dlib
 import os

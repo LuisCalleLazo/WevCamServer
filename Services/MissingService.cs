@@ -151,5 +151,26 @@ namespace WebCamServer.Services
       return await _fileServ.GetZipOfFilesOfFolder(folderPath);
     }
     
+    public async Task<MissingDetailDto> UpdateMissing(MissingToUpdateDto update)
+    {
+      var missing = await _repo.GetById(update.MissingId);
+      missing.BirthDate = update.BirthDate;
+      missing.MissingDate = update.MissingDate;
+      missing.FullName = update.FullName;
+      missing.Size = update.Size;
+      missing.Gender = update.Gender;
+      missing.Description = update.Description;
+      missing.LastSeenMap = update.LastSeenMap;
+      
+      await _repo.Update(missing);
+      return _mapper.Map<MissingDetailDto>(missing);
+    }
+    public async Task<bool> DeleteMissing(int missingId)
+    {
+      var missing = await _repo.GetById(missingId);
+      if(missing == null) return false;
+      await _repo.Drop(missing);
+      return true;
+    }
   }
 }

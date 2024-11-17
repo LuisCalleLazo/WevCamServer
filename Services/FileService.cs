@@ -75,30 +75,37 @@ namespace WebCamServer.Services
 
     public async Task<byte[]> GetZipOfFilesOfFolder(string folder)
     {
-
-      using (var memoryStream = new MemoryStream())
+      try
       {
-        using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
+        using (var memoryStream = new MemoryStream())
         {
-          var files = Directory.GetFiles(folder);
-
-          foreach (var filePath in files)
+          using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
           {
-            var fileName = Path.GetFileName(filePath);
-            var zipEntry = archive.CreateEntry(fileName, CompressionLevel.Fastest);
+            var files = Directory.GetFiles(folder);
 
-            using (var entryStream = zipEntry.Open())
-            using (var fileStream = File.OpenRead(filePath))
+            foreach (var filePath in files)
             {
-              // Copiar el contenido del archivo en la entrada ZIP
-              await fileStream.CopyToAsync(entryStream);
+              var fileName = Path.GetFileName(filePath);
+              var zipEntry = archive.CreateEntry(fileName, CompressionLevel.Fastest);
+
+              using (var entryStream = zipEntry.Open())
+              using (var fileStream = File.OpenRead(filePath))
+              {
+                // Copiar el contenido del archivo en la entrada ZIP
+                await fileStream.CopyToAsync(entryStream);
+              }
             }
           }
-        }
 
-        // Reiniciar la posición del memoryStream para que se lea desde el inicio
-        memoryStream.Position = 0;
-        return memoryStream.ToArray();
+          // Reiniciar la posición del memoryStream para que se lea desde el inicio
+          memoryStream.Position = 0;
+          return memoryStream.ToArray();
+        }
+      }
+      catch(Exception ex)
+      {
+        Console.WriteLine(ex.Message);
+        return null;
       }
     }
   }

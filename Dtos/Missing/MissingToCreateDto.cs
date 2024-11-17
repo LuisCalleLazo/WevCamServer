@@ -11,9 +11,6 @@ namespace WebCamServer.Dtos
     public DateTime CreateAt { get; set; }
     
     [JsonIgnore]
-    public string DirPhotos { get; set; }
-    
-    [JsonIgnore]
     public int SeekerId { get; set; }
     
     public MissingToCreateDto()

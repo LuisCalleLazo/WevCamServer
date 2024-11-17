@@ -27,6 +27,8 @@ namespace WebCamServer.Helpers
       CreateMap<MissingToCreateDto, Missing>();
       CreateMap<Missing, MissingResponseDto>();
       CreateMap<Missing, MissingToListDto>();
+      CreateMap<Missing, MissingDetailDto>();
+      CreateMap<MissingToUpdateDto, Missing>();
     }
   }
 }

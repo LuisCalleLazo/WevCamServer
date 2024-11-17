@@ -13,5 +13,7 @@ namespace WebCamServer.Services.Interfaces
     Task<bool> UpdatePhotosMissing(int missingId, MissingPhotosType type);
     Task<List<MissingToListDto>> GetListMissings(int seekerId);
     Task<byte[]> GetZipFilesMissing(int userId, int missingId,MissingPhotosType type);
+    Task<MissingDetailDto> UpdateMissing(MissingToUpdateDto update);
+    Task<bool> DeleteMissing(int missingId);
   }
 }

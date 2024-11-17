@@ -131,7 +131,8 @@ namespace WebCamServer.Controllers
     }
 
     [HttpGet("{missing_id}/{type}")]
-    public async Task<IActionResult> GetMissingsFilesZip(int missing_id, MissingPhotosType type)
+    public async Task<
+    IActionResult> GetMissingsFilesZip(int missing_id, MissingPhotosType type)
     {
       try
       {
@@ -143,9 +144,59 @@ namespace WebCamServer.Controllers
         var response =  await _service.GetZipFilesMissing(userId, missing_id, type);
 
         if(response == null)
-          return BadRequest("No existen datos");
+          return BadRequest("No existen las imagenes");
         
         return File(response, "application/zip", "files_missing.zip");
+      }
+      catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }
+    
+    [HttpPut("{missingId}")]
+    public async Task<ActionResult> UpdateMissing(int missingId, [FromBody] MissingToUpdateDto update)
+    {
+      try
+      {
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+        int userId = Int32.Parse(user_id);
+
+        var seeker = await _userServ.GetSeekerByUserId(userId);
+        update.MissingId = missingId;
+        update.SeekerId = seeker.Id;
+        
+        var response =  await _service.UpdateMissing(update);
+
+        if(response == null)
+          return BadRequest("Credenciales incorrectas!!");
+        
+        return Ok(response);
+      }
+      catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }
+
+    [HttpDelete("{missingId}")]
+    public async Task<IActionResult> DeleteMissing(int missingId)
+    {try
+      {
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+
+        var response =  await _service.DeleteMissing(missingId);
+
+        if(!response)
+          return BadRequest("No se pudo eliminar");
+        
+        return Ok("Se elimino correctamente");
       }
       catch(Exception err)
       {

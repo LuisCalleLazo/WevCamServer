@@ -33,9 +33,9 @@ def predict_face_model(image_path, model_path):
   result = predict_face(modelo, image_path)
 
   if result is None: # No hay ningun rostro
-      return 0
+    return 0
   elif result: # Se encontro el rostro
-     return 1
+    return 1
   else:  # Hay rostro pero no es la persona que se busca
     return 2
   
