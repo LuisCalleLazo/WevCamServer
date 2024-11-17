@@ -25,6 +25,9 @@ LICENSE.txt
 .env
 
 /Missing
-/IA/**.jpg
-/IA/**.jpeg
-/IA/**.png
+
+# Ignorar todos los archivos en esta carpeta
+/IA/*/**
+
+# Exceptuar los archivos .py
+!/IA/**/*.py
