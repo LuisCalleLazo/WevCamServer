@@ -59,8 +59,7 @@ namespace WebCamServer.Services
       string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
       string pathPhotos = Path.Combine(
         Directory.GetCurrentDirectory(),
-        ConstantsValueSystem.NameFolderMissigns(), 
-        $"{userId}/{missingId}/{file_type}"
+        $"Temp/{userId}/{missingId}/{file_type}"
       );
       
       if (Directory.Exists(pathPhotos))
@@ -69,7 +68,7 @@ namespace WebCamServer.Services
         foreach (var file in files)
         {
           string result = await _detectIAServ.DetectFacePose(file);
-          Console.WriteLine($"Resultado: {result}, El Tipo es: {file_type}");
+          Console.WriteLine(result);
           if(result != file_type) return false; 
         }
       }
@@ -78,19 +77,23 @@ namespace WebCamServer.Services
       return true;
     }
 
-    public bool RemovePhotosError(int userId, int missingId)
+    public bool RemovePhotosError(int userId, int missingId, bool temp)
     {
+      string path_missing = $"{userId}/{missingId}";
       string path = Path.Combine(
         Directory.GetCurrentDirectory(), 
         ConstantsValueSystem.NameFolderMissigns(),
-        $"{userId}/{missingId}"
+        path_missing
       );
+
+      string path_temp = Path.Combine(Directory.GetCurrentDirectory(), $"Temp/{path_missing}");
+      string path_delete = temp ? path_temp : path;
       try
       {
         // Elimina la carpeta y su contenido
-        if (Directory.Exists(path))
+        if (Directory.Exists(path_delete))
         {
-          Directory.Delete(path, true);
+          Directory.Delete(path_delete, true);
           Console.WriteLine("La carpeta ha sido eliminada exitosamente.");
           return true;
         }
@@ -107,30 +110,30 @@ namespace WebCamServer.Services
       }
     }
 
-    public async Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos, int userId)
+    public async Task<bool> SavePhotosMissing(MissingPhotosType type, MissingToPhotosDto missingPhotos, int userId, bool temp)
     {
       var photos = missingPhotos.Photos;
-
+      string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
+      string path_missing = $"{userId}/{missingPhotos.MissingId}/{file_type}";
       string path = Path.Combine(
         Directory.GetCurrentDirectory(), 
         ConstantsValueSystem.NameFolderMissigns(),
-        $"{userId}/{missingPhotos.MissingId}"
+        path_missing
       );
-        
-      if (Directory.Exists(path)) Directory.Delete(path, true);
 
-      string file_type = ConstantsValueSystem.GetStrMissingPhotosType(type);
+      string path_temp = Path.Combine(Directory.GetCurrentDirectory(), $"Temp/{path_missing}");
+      string path_use = temp ? path_temp : path;
+        
+      if (Directory.Exists(path_use)) Directory.Delete(path_use, true);
+
       for (int i = 0; i < photos.Length; i++)
       { 
         var savePhotos = new MissingToSaveDto
         {
           File = photos[i],
-          Type = file_type,
-          MissingId = missingPhotos.MissingId,
-          UserId = userId,
           NameFile = $"missing_{file_type}_{i}{Path.GetExtension(photos[i].FileName)}",
         };
-        await _fileServ.UploadLocalFile(savePhotos);
+        await _fileServ.UploadLocalFile(savePhotos, path_use);
       }
 
       return true;

@@ -28,9 +28,6 @@ namespace WebCamServer.Dtos
   public class MissingToSaveDto
   {
     public IFormFile File { get; set; }
-    public int UserId { get; set; }
-    public int MissingId { get; set; }
     public string NameFile { get; set; }
-    public string Type { get; set; }
   }
 }
