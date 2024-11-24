@@ -16,7 +16,11 @@ namespace WebCamServer.Services
 
     public async Task<string> DetectFacePose(string imagePath)
     {
-      string scriptPath = Path.Combine(Directory.GetCurrentDirectory(), ConstantsValueSystem.NameFolderPython(), "DetectFace/detect_face_pose.py");
+      string scriptPath = Path.Combine(
+        Directory.GetCurrentDirectory(), 
+        ConstantsValueSystem.NameFolderPython(), 
+        "DetectFace/detect_face_pose.py"
+      );
 
       var psi = new ProcessStartInfo
       {

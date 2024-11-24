@@ -86,6 +86,7 @@ namespace WebCamServer.Controllers
     {
       try
       {
+        Console.WriteLine("LO INTENTO EL WS");
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
           // Extraer el token de los parámetros de consulta
