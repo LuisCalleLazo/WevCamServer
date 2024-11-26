@@ -6,5 +6,6 @@ namespace WebCamServer.Services.Interfaces
   {
     Task<List<FoundToListDto>> ListOfVideoMissing(int missingId);
     Task<FoundDetailDto> Create(FoundToCreateDto create);
+    Task<byte[]> GetImgsFound(int foundId);
   }
 }

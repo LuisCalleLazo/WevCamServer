@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebCamServer.Dtos;
 using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Controllers
@@ -19,13 +20,47 @@ namespace WebCamServer.Controllers
     } 
 
     [Authorize]
-    [HttpGet("{missingId}")]
+    [HttpGet("list/{missingId}")]
     public async Task<IActionResult> GetFoundVideoList(int missingId)
     {
       try
       {
         var founds = await _service.ListOfVideoMissing(missingId);
         return Ok(founds);
+      }catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }  
+
+    [HttpPost]
+    public async Task<IActionResult> CreateFound(FoundToCreateDto create)
+    {
+      try
+      {
+        var created = await _service.Create(create);
+        return Ok(created);
+      }catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }  
+
+    
+    [HttpGet("{foundId}")]
+    public async Task<IActionResult> GetFoundMp4(int foundId)
+    {
+      try
+      {
+        var response = await _service.GetImgsFound(foundId);
+        if(response == null)
+          return BadRequest("No existen las imagenes");
+        
+        return File(response, "application/zip", "files_missing.zip");
       }catch(Exception err)
       {
         _logger.LogError(err.Message);

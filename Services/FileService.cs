@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos;
-using WebCamServer.Helpers;
 using WebCamServer.Services.Interfaces;
 using System.IO.Compression;
+using WebCamServer.Models;
+using System.Diagnostics;
+using System.Globalization;
 
 namespace WebCamServer.Services
 {
@@ -93,5 +95,78 @@ namespace WebCamServer.Services
         return null;
       }
     }
+
+    public List<string> GetImagesOfFound(FoundVideo foundVideo)
+    {
+      string basePath = Path.Combine(Directory.GetCurrentDirectory(), "Video");
+
+      // Carga las carpetas que coincidan con la fecha
+      string targetFolder = Path.Combine(basePath, $"Video_{foundVideo.Date:yyyy-MM-dd}");
+      if (!Directory.Exists(targetFolder))
+      {
+        Console.WriteLine("La carpeta para la fecha especificada no existe.");
+        return [];
+      }
+
+      // Filtrar imágenes dentro del rango
+      var images = Directory.GetFiles(targetFolder, "*.jpg")
+        .Where(file =>
+        {
+          string fileName = Path.GetFileNameWithoutExtension(file);
+          string timePart = fileName.Split('_').Last();
+          if (TimeOnly.TryParseExact
+            (timePart, 
+            "HH-mm-ss", 
+            CultureInfo.InvariantCulture, 
+            DateTimeStyles.None, 
+            out TimeOnly imageTime
+            ))
+          {
+            return imageTime >= foundVideo.InitVideo && imageTime <= foundVideo.EndVideo;
+          }
+          return false;
+        })
+        .OrderBy(f => f)
+        .ToList();
+
+      return images;
+    }
+
+
+    
+    public async Task<byte[]> GetZipOfFilesOfListFiles(List<string> files)
+    {
+      try
+      {
+        using (var memoryStream = new MemoryStream())
+        {
+          using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
+          {
+            foreach (var filePath in files)
+            {
+              var fileName = Path.GetFileName(filePath);
+              var zipEntry = archive.CreateEntry(fileName, CompressionLevel.Fastest);
+
+              using (var entryStream = zipEntry.Open())
+              using (var fileStream = File.OpenRead(filePath))
+              {
+                // Copiar el contenido del archivo en la entrada ZIP
+                await fileStream.CopyToAsync(entryStream);
+              }
+            }
+          }
+
+          // Reiniciar la posición del memoryStream para que se lea desde el inicio
+          memoryStream.Position = 0;
+          return memoryStream.ToArray();
+        }
+      }
+      catch(Exception ex)
+      {
+        Console.WriteLine(ex.Message);
+        return null;
+      }
+    }
+
   }
 }
