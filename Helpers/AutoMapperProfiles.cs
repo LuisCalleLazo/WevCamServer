@@ -30,6 +30,9 @@ namespace WebCamServer.Helpers
       CreateMap<Missing, MissingToListSingleDto>();
       CreateMap<Missing, MissingDetailDto>();
       CreateMap<MissingToUpdateDto, Missing>();
+
+      CreateMap<FoundVideo, FoundToListDto>();
+      CreateMap<Camera, CameraDetailDto>();
     }
   }
 }

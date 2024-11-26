@@ -97,10 +97,10 @@ namespace WebCamServer.Services
     }
 
     // ToDo: Realizar Generacion de Embeddings con FaceNet de todas las imagenes obtenidas
-    public async Task<string> GenerateEmbeddingAsync(string imagePath)
-    {
-      return string.Empty;
-    }
+    // public async Task<string> GenerateEmbeddingAsync(string imagePath)
+    // {
+    //   return string.Empty;
+    // }
 
   }
 }

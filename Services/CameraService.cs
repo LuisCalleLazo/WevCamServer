@@ -2,6 +2,10 @@ using System.Net.WebSockets;
 using WebCamServer.Services.Interfaces;
 using SixLabors.ImageSharp;
 using System.Collections.Concurrent;
+using WebCamServer.Repositories.Interfaces;
+using WebCamServer.Dtos;
+using WebCamServer.Models;
+using AutoMapper;
 
 namespace WebCamServer.Services
 {
@@ -9,10 +13,13 @@ namespace WebCamServer.Services
   {
 
     private ConcurrentBag<WebSocket> _viewers = new ConcurrentBag<WebSocket>();
+    private readonly ICameraRepository _repo;
+    private readonly IMapper _mapper;
 
-    public CameraService()
+    public CameraService(ICameraRepository repo, IMapper mapper)
     {
-
+      _repo = repo;
+      _mapper = mapper;
     }
 
     private async Task SendImageToViewers(byte[] imageBytes)
@@ -150,6 +157,17 @@ namespace WebCamServer.Services
           await viewer.CloseAsync(WebSocketCloseStatus.NormalClosure, "Server is shutting down", CancellationToken.None);
         }
       }
+    }
+
+    public async Task<CameraDetailDto> Create(CameraToCreateDto create)
+    {
+      var camera = new Camera();
+      camera.Code = create.Code.ToString();
+      camera.UbicationMap = create.UbicationMap;
+      camera.CreateUserId = create.CreateUserId;
+      camera.CreateAt = create.CreateAt;
+      await _repo.Create(camera);
+      return _mapper.Map<CameraDetailDto>(camera);
     }
   }
 }

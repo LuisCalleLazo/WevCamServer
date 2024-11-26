@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Controllers
 {
@@ -10,21 +11,21 @@ namespace WebCamServer.Controllers
   {
     private string message_error = "Hubo un error, consulte con el administrador";
     private readonly ILogger<FoundController> _logger;
-    public FoundController(ILogger<FoundController> logger)
+    private readonly IFoundVideoService _service;
+    public FoundController(ILogger<FoundController> logger, IFoundVideoService service)
     {
       _logger = logger;
+      _service = service;
     } 
 
     [Authorize]
-    [HttpGet]
-    public async Task<IActionResult> GetFoundVideoList()
+    [HttpGet("{missingId}")]
+    public async Task<IActionResult> GetFoundVideoList(int missingId)
     {
       try
       {
-        
-
-
-        return Ok("asdasd");
+        var founds = await _service.ListOfVideoMissing(missingId);
+        return Ok(founds);
       }catch(Exception err)
       {
         _logger.LogError(err.Message);

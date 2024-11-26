@@ -42,9 +42,7 @@ namespace WebCamServer.Config
       services.AddScoped<INotificationService, NotificationService>();
       services.AddScoped<IMissingService, MissingService>();
       services.AddScoped<IFileService, FileService>();
-      
-
-
+      services.AddScoped<IFoundVideoService, FoundVideoService>();
     }
   }
 }

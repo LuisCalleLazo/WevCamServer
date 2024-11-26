@@ -56,7 +56,7 @@ namespace WebCamServer.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("admin");
+                    b.ToTable("admin", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.Camera", b =>
@@ -93,7 +93,7 @@ namespace WebCamServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("camera");
+                    b.ToTable("camera", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.Contacts", b =>
@@ -138,7 +138,7 @@ namespace WebCamServer.Migrations
 
                     b.HasIndex("SeekerId");
 
-                    b.ToTable("contacts");
+                    b.ToTable("contacts", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.FoundVideo", b =>
@@ -188,7 +188,7 @@ namespace WebCamServer.Migrations
 
                     b.HasIndex("MissingId");
 
-                    b.ToTable("found_video");
+                    b.ToTable("found_video", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.Missing", b =>
@@ -268,7 +268,7 @@ namespace WebCamServer.Migrations
 
                     b.HasIndex("SeekerId");
 
-                    b.ToTable("missing");
+                    b.ToTable("missing", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.Notification", b =>
@@ -317,7 +317,7 @@ namespace WebCamServer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("notification");
+                    b.ToTable("notification", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.Seeker", b =>
@@ -354,7 +354,7 @@ namespace WebCamServer.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("seeker");
+                    b.ToTable("seeker", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.Token", b =>
@@ -387,7 +387,7 @@ namespace WebCamServer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("token");
+                    b.ToTable("token", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.User", b =>
@@ -442,7 +442,7 @@ namespace WebCamServer.Migrations
                     b.HasIndex("UserInfoId")
                         .IsUnique();
 
-                    b.ToTable("user");
+                    b.ToTable("user", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.UserInfo", b =>
@@ -491,7 +491,7 @@ namespace WebCamServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("user_info");
+                    b.ToTable("user_info", (string)null);
                 });
 
             modelBuilder.Entity("WebCamServer.Models.Admin", b =>
