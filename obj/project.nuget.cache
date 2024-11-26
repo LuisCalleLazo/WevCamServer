@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2JlHJzWM+Oft2Ixa+VjmTgiIB06Q78LfE+yUgXq0PAxLF/EfS3uFAmMbUUaumhNaDQjI2nMkOfYJ5/SOPwFsZg==",
+  "dgSpecHash": "4KvXuLmFTtVVc+RyUn+CdbcDodDtAGAdLw8uem3kW0+lAHG5j6DicD1pQv13lEmZQsaNWrZgRApaG95+4jPSxw==",
   "success": true,
   "projectFilePath": "C:\\Users\\calle\\Desktop\\UNIFRANZ\\SEMESTRE_6\\Embebidos\\WebCamServer\\WebCamServer.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,7 @@
     "C:\\Users\\calle\\.nuget\\packages\\mongodb.entityframeworkcore\\8.1.0\\mongodb.entityframeworkcore.8.1.0.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\mongodb.libmongocrypt\\1.11.0\\mongodb.libmongocrypt.1.11.0.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\calle\\.nuget\\packages\\mqttnet\\3.1.2\\mqttnet.3.1.2.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512",
     "C:\\Users\\calle\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.4\\npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512",

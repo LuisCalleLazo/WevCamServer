@@ -33,6 +33,7 @@ namespace WebCamServer.Config
       // Algoritmos de colas
       services.AddSingleton<TaskNewQueue>();
       services.AddSingleton<TaskOldQueue>();
+      services.AddSingleton<MqttBrokerService>();
 
       // Servicios de corta vida
       services.AddScoped<IDetectIAService, DetectIAService>();

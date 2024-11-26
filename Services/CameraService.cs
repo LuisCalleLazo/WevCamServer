@@ -15,6 +15,7 @@ namespace WebCamServer.Services
     private ConcurrentBag<WebSocket> _viewers = new ConcurrentBag<WebSocket>();
     private readonly ICameraRepository _repo;
     private readonly IMapper _mapper;
+    private readonly MqttBrokerService _mqttBrokerService;
 
     public CameraService(ICameraRepository repo, IMapper mapper)
     {
@@ -112,6 +113,10 @@ namespace WebCamServer.Services
                   image.SaveAsJpeg(fileName); 
                   Console.WriteLine("Image Write");
                 }
+
+                
+                // Publicar mensaje en el broker MQTT
+                await _mqttBrokerService.PublishMessageAsync("esp32cam/images", $"Imagen guardada: {fileName}");
               }
             }
           }

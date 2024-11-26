@@ -41,6 +41,8 @@ builder.Services.ConfigureAuth(builder);
 
 var app = builder.Build();
 
+var mqttService = app.Services.GetRequiredService<MqttBrokerService>();
+mqttService.StartAsync().Wait();
 
 // TODO: Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
