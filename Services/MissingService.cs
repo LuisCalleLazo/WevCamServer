@@ -13,13 +13,15 @@ namespace WebCamServer.Services
     private readonly IMissingRepository _repo;
     private readonly IDetectIAService _detectIAServ;
     private readonly IFileService _fileServ;
+    private readonly IFoundVideoRepository _foundRepo;
     private readonly IMapper _mapper;
-    public MissingService(IMissingRepository repo, IMapper mapper, IDetectIAService detectIAServ, IFileService fileServ)
+    public MissingService(IMissingRepository repo, IMapper mapper, IDetectIAService detectIAServ, IFileService fileServ, IFoundVideoRepository foundRepo)
     {
       _repo = repo;
       _mapper = mapper;
       _detectIAServ = detectIAServ;
       _fileServ = fileServ;
+      _foundRepo = foundRepo;
     }
     public async Task<bool> UpdatePhotosMissing(int missingId, MissingPhotosType type)
     {
@@ -196,13 +198,80 @@ namespace WebCamServer.Services
           ConstantsValueSystem.NameFolderMissigns(),
           path_missing
         );
-        bool created = await _detectIAServ.GenerateModel($"missing_{missingId}_{DateTime.Now.Second}", "keras", path);
+        bool created = await _detectIAServ.GenerateModel($"missing_{missingId}", "keras", path);
         if(!created) return false;
+
+
+        _ = Task.Run(async () =>
+        {
+          try
+          {
+            await SearchMissingInRegisters(Path.Combine(path_missing,$"missing_{missingId}.keras" ), missingId);
+            Console.WriteLine("Se hizo la busqueda correctamente");
+          }
+          catch (Exception ex)
+          {
+            // Manejo de errores en segundo plano (por ejemplo, registro en logs).
+            Console.WriteLine($"Error al generar el modelo: {ex.Message}");
+          }
+        });
 
         return true;
       }
       
       return false;
+    }
+
+    public async Task SearchMissingInRegisters(string pathModel, int missingId)
+    {
+      var missing = await _repo.GetById(missingId);
+      var startDate = missing.MissingDate;
+      var endDate = DateTime.Now;
+
+      // Lista para recopilar las tareas
+      var tasks = new List<Task<List<FaceDetection>>>();
+
+      for (int year = startDate.Year; year <= endDate.Year; year++)
+      {
+        int startMonth = (year == startDate.Year) ? startDate.Month : 1;
+        int endMonth = (year == endDate.Year) ? endDate.Month : 12;
+
+        for (int month = startMonth; month <= endMonth; month++)
+        {
+          DateTime firstDayOfMonth = new DateTime(year, month, 1);
+          DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+          DateTime searchStartDate = (firstDayOfMonth < startDate) ? startDate : firstDayOfMonth;
+          DateTime searchEndDate = (lastDayOfMonth > endDate) ? endDate : lastDayOfMonth;
+
+          for (var date = searchStartDate; date <= searchEndDate; date = date.AddDays(1))
+          {
+            string folderPath = $"Video_{date:yyyy-MM-dd}"; // Formato de carpeta
+            Console.WriteLine($"Buscando en carpeta: {folderPath}");
+            
+            // Lógica para procesar la carpeta
+            if (Directory.Exists(folderPath))
+            {
+              tasks.Add(Task.Run(() => _detectIAServ.PredictFaceMultiple(folderPath, pathModel)));
+            }
+          }
+        }
+      }
+
+      var allResults = await Task.WhenAll(tasks);
+      var detections = allResults.SelectMany(x => x).ToList();
+
+      foreach(var detection in detections)
+      {
+        FoundVideo created = new FoundVideo();
+        created.InitVideo = detection.StartTime;
+        created.EndVideo = detection.EndTime;
+        created.Date = detection.Date;
+        created.CameraId = 4;
+        created.MissingId = missingId;
+        created.CreateAt = DateTime.UtcNow;
+        await _foundRepo.Create(created);
+      }
     }
   }
 }

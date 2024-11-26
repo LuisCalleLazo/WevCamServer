@@ -168,5 +168,43 @@ namespace WebCamServer.Services
       }
     }
 
+
+    public List<string> GetImagesOfRange(DateOnly date, TimeOnly init, TimeOnly end)
+    {
+      string basePath = Path.Combine(Directory.GetCurrentDirectory(), "Video");
+
+      // Carga las carpetas que coincidan con la fecha
+      string targetFolder = Path.Combine(basePath, $"Video_{date:yyyy-MM-dd}");
+      if (!Directory.Exists(targetFolder))
+      {
+        Console.WriteLine("La carpeta para la fecha especificada no existe.");
+        return [];
+      }
+
+      // Filtrar imágenes dentro del rango
+      var images = Directory.GetFiles(targetFolder, "*.jpg")
+        .Where(file =>
+        {
+          string fileName = Path.GetFileNameWithoutExtension(file);
+          string timePart = fileName.Split('_').Last();
+          if (TimeOnly.TryParseExact
+            (timePart, 
+            "HH-mm-ss", 
+            CultureInfo.InvariantCulture, 
+            DateTimeStyles.None, 
+            out TimeOnly imageTime
+            ))
+          {
+            return imageTime >= init && imageTime <= end;
+          }
+          return false;
+        })
+        .OrderBy(f => f)
+        .ToList();
+
+      return images;
+    }
+
+
   }
 }
