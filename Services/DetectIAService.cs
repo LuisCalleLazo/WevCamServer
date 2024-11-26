@@ -40,7 +40,10 @@ namespace WebCamServer.Services
     }
     public async Task<bool> GenerateModel(string nameModel, string typeSave, string folderPath)
     {
-      string scriptPath = Path.Combine(Directory.GetCurrentDirectory(), ConstantsValueSystem.NameFolderPython(), "PredictionFace/face_model.py");
+      string scriptPath = Path.Combine(
+        Directory.GetCurrentDirectory(), 
+        ConstantsValueSystem.NameFolderPython(), 
+        "PredictionFace/face_model.py");
 
       var psi = new ProcessStartInfo
       {
@@ -62,7 +65,10 @@ namespace WebCamServer.Services
 
     public async Task<ResultPredictionType> PredictFace(string image_path, string path_model)
     {
-      string scriptPath = Path.Combine(Directory.GetCurrentDirectory(), ConstantsValueSystem.NameFolderPython(), "PredictionFace/prediction_face.py");
+      string scriptPath = Path.Combine(
+        Directory.GetCurrentDirectory(), 
+        ConstantsValueSystem.NameFolderPython(), 
+        "PredictionFace/prediction_face.py");
 
       var psi = new ProcessStartInfo
       {
@@ -90,17 +96,6 @@ namespace WebCamServer.Services
         }
       }
     }
-    // ToDo: Realizar compracion de embeddings con FaceNet     
-    public bool CompareEmbeddings(string embedding, string[] references)
-    {
-      return true;
-    }
-
-    // ToDo: Realizar Generacion de Embeddings con FaceNet de todas las imagenes obtenidas
-    // public async Task<string> GenerateEmbeddingAsync(string imagePath)
-    // {
-    //   return string.Empty;
-    // }
 
   }
 }

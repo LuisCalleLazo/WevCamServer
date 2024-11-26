@@ -1,21 +1,25 @@
 
 from keras._tf_keras.keras.models import Sequential
-from keras._tf_keras.keras.layers import Dense
+from keras._tf_keras.keras.layers import Dense, Input
 from keras._tf_keras.keras.optimizers import Adam
 from face_embeddings import get_training_XY
 import os
 import sys
+import io
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 def generate_model(name_model, type_save, training_model):
   try:
-    path_model = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Models')
-    path_full = os.path.join(path_model, f"{name_model}.{type_save}")
+    path_full = os.path.join(training_model, f"{name_model}.{type_save}")
 
     X_train, y_train = get_training_XY(training_model)
 
     # Definir el modelo
     model = Sequential([
-      Dense(128, activation='relu', input_shape=(128,)),
+      Input(shape=(128,)),
+      Dense(128, activation='relu'),
       Dense(64, activation='relu'),
       Dense(1, activation='sigmoid')
     ])
@@ -33,6 +37,8 @@ def generate_model(name_model, type_save, training_model):
 
     return True
   except Exception as e:
+    print("Sucedio un error")
+    print(e)
     return False
 
 

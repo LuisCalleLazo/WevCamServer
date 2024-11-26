@@ -91,6 +91,9 @@ namespace WebCamServer.Controllers
 
         if(!updated) return BadRequest("Se guardaron las fotos, pero no se actualizo el registro");
 
+        if(await _service.GenerateModelNextToPhotos(userId, missingData.MissingId))
+          Console.WriteLine("Se genero el modelo correctamente");
+
         return Ok("Se registro exitosamente");
       }
       catch(Exception err)

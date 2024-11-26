@@ -178,5 +178,31 @@ namespace WebCamServer.Services
 
     public async Task<List<MissingToListSingleDto>> ListSingleMissing(int seekerId) =>
       _mapper.Map<List<MissingToListSingleDto>>(await _repo.GetList(seekerId));
+
+
+    public async Task<bool> GenerateModelNextToPhotos(int userId, int missingId)
+    {
+      var missing = await _repo.GetById(missingId);
+      if(missing == null) return false;
+      
+      if(
+        missing.PhotosFront &&
+        missing.PhotosRigth &&
+        missing.PhotosLeft)
+      {
+        string path_missing = $"{userId}/{missing.Id}";
+        string path = Path.Combine(
+          Directory.GetCurrentDirectory(), 
+          ConstantsValueSystem.NameFolderMissigns(),
+          path_missing
+        );
+        bool created = await _detectIAServ.GenerateModel($"missing_{missingId}_{DateTime.Now.Second}", "keras", path);
+        if(!created) return false;
+
+        return true;
+      }
+      
+      return false;
+    }
   }
 }

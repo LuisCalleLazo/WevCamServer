@@ -16,5 +16,6 @@ namespace WebCamServer.Services.Interfaces
     Task<MissingDetailDto> UpdateMissing(MissingToUpdateDto update);
     Task<bool> DeleteMissing(int missingId);
     Task<List<MissingToListSingleDto>> ListSingleMissing(int seekerId);
+    Task<bool> GenerateModelNextToPhotos(int userId, int missingId);
   }
 }
