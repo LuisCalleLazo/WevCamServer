@@ -20,9 +20,11 @@ namespace WebCamServer.Controllers
     public async Task<IActionResult> GetFoundVideoList()
     {
       try
-            {
-        return Ok("asdasd");
+      {
+        
 
+
+        return Ok("asdasd");
       }catch(Exception err)
       {
         _logger.LogError(err.Message);

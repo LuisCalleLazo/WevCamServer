@@ -175,5 +175,8 @@ namespace WebCamServer.Services
       await _repo.Drop(missing);
       return true;
     }
+
+    public async Task<List<MissingToListSingleDto>> ListSingleMissing(int seekerId) =>
+      _mapper.Map<List<MissingToListSingleDto>>(await _repo.GetList(seekerId));
   }
 }

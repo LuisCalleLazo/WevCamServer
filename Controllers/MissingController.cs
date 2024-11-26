@@ -184,7 +184,8 @@ namespace WebCamServer.Controllers
 
     [HttpDelete("{missingId}")]
     public async Task<IActionResult> DeleteMissing(int missingId)
-    {try
+    {
+      try
       {
         var user_id = User.FindFirst("id")?.Value;
         if(user_id == null) Unauthorized("El usuario no es reconocido");
@@ -195,6 +196,34 @@ namespace WebCamServer.Controllers
           return BadRequest("No se pudo eliminar");
         
         return Ok("Se elimino correctamente");
+      }
+      catch(Exception err)
+      {
+        _logger.LogError(err.Message);
+        Console.WriteLine(err.StackTrace);
+        return BadRequest(message_error);
+      }
+    }
+
+    
+    [HttpGet("single")]
+    public async Task<IActionResult> GetMissingsSingleOfSeeker()
+    {
+      try
+      {
+        var user_id = User.FindFirst("id")?.Value;
+        if(user_id == null) Unauthorized("El usuario no es reconocido");
+        int userId = Int32.Parse(user_id);
+
+        var seeker = await _userServ.GetSeekerByUserId(userId);
+        if(seeker == null) return BadRequest("No eres Seeker");
+        
+        var response =  await _service.ListSingleMissing(seeker.Id);
+
+        if(response == null)
+          return BadRequest("No existen datos");
+        
+        return Ok(response);
       }
       catch(Exception err)
       {

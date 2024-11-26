@@ -16,4 +16,10 @@ namespace WebCamServer.Dtos
     public string NameFile { get; set; }
     public IFormFile Asset { get; set; }
   }
+
+  public class MissingToListSingleDto
+  {
+    public int Id { get; set; }
+    public string FullName { get; set; }
+  }
 }
