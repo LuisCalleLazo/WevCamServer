@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
+
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebCamServer.Dtos;
-using WebCamServer.Models;
 using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Controllers

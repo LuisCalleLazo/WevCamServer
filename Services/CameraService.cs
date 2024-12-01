@@ -114,8 +114,6 @@ namespace WebCamServer.Services
                   Console.WriteLine("Image Write");
                 }
 
-                
-                // Publicar mensaje en el broker MQTT
                 await _mqttBrokerService.PublishMessageAsync("esp32cam/images", $"Imagen guardada: {fileName}");
               }
             }
