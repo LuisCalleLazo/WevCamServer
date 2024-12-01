@@ -19,7 +19,7 @@ namespace WebCamServer.Services
     }
 
     public async Task<List<FoundToListDto>> ListOfVideoMissing(int missingId) =>
-      _mapper.Map<List<FoundToListDto>>(await _repo.GetByMissingId(missingId));
+      _mapper.Map<List<FoundToListDto>>(await _repo.GetListAll());
 
 
     public async Task<FoundDetailDto> Create(FoundToCreateDto create)

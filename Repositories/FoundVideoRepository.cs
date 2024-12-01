@@ -23,6 +23,10 @@ namespace WebCamServer.Repositories
         .Where(c => c.MissingId == missingId && c.DeleteAt == DateTime.MinValue)
         .ToListAsync();
         
+    public async Task<List<FoundVideo>> GetListAll() =>
+      await _context.FoundVideos
+        .Where(x => x.DeleteAt == DateTime.MinValue)
+        .ToListAsync();
     public async Task<List<FoundVideo>> GetList(int missingId) =>
       await _context.FoundVideos
         .Where(x => x.DeleteAt == DateTime.MinValue && x.MissingId == missingId)

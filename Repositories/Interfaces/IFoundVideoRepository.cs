@@ -7,6 +7,7 @@ namespace WebCamServer.Repositories.Interfaces
     
     Task<FoundVideo> GetById(int id);
     Task<List<FoundVideo>> GetByMissingId(int missingId);
+    Task<List<FoundVideo>> GetListAll();
     Task<List<FoundVideo>> GetList(int missingId);
     Task<List<FoundVideo>> GetListDel(int missingId);
     Task Create(FoundVideo create);

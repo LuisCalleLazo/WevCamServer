@@ -132,8 +132,7 @@ namespace WebCamServer.Controllers
     }
 
     [HttpGet("{missing_id}/{type}")]
-    public async Task<
-    IActionResult> GetMissingsFilesZip(int missing_id, MissingPhotosType type)
+    public async Task<IActionResult> GetMissingsFilesZip(int missing_id, MissingPhotosType type)
     {
       try
       {

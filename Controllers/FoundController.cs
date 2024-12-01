@@ -6,7 +6,7 @@ using WebCamServer.Services.Interfaces;
 
 namespace WebCamServer.Controllers
 {
-  [Route("api/[controller]")]
+  [Route("api/v1/found")]
   [ApiController]
   public class FoundController : ControllerBase
   {
