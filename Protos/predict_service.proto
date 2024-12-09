@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "WebCamServer.Protos";
+
+service PredictService {
+  rpc GenerateModel (GenerateModelRequest) returns (GenerateModelResponse);
+  rpc PredictFace (PredictFaceRequest) returns (PredictFaceResponse);
+  rpc PredictFaceMultiple (PredictFaceMultipleRequest) returns (PredictFaceMultipleResponse);
+}
+
+// GENERATE MODEL
+message GenerateModelRequest {
+  string name_model = 1;
+  string type_save = 2;
+  string folder_path = 3;
+  int32 id_missing = 4;
+}
+
+message GenerateModelResponse {
+  bool success = 1;
+}
+
+// PREDICT FACE
+message PredictFaceRequest {
+  string image_path = 1;
+}
+
+message PredictFaceResponse {
+  string result = 1;
+}
+
+
+// PREDICT FACE MULTIPLE
+message PredictFaceMultipleRequest {
+  string folder_path = 1;
+}
+
+message PredictFaceMultipleResponse {
+  repeated DateRange date_ranges = 1;
+}
+
+message DateRange {
+  string init_date = 1;
+  string end_date = 2;
+}

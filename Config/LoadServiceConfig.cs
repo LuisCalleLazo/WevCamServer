@@ -34,9 +34,9 @@ namespace WebCamServer.Config
       services.AddSingleton<TaskNewQueue>();
       services.AddSingleton<TaskOldQueue>();
       services.AddSingleton<MqttBrokerService>();
+      services.AddSingleton<IGrpcClient, GrpcClient>();
 
       // Servicios de corta vida
-      services.AddScoped<IGrpcClient, GrpcClient>();
       services.AddScoped<IDetectIAService, DetectIAService>();
       services.AddScoped<IAuthService, AuthService>();
       services.AddScoped<ICameraService, CameraService>();

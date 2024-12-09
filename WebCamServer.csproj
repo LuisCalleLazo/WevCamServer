@@ -40,7 +40,8 @@
     <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="Protos\service.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\face_service.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\predict_service.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>

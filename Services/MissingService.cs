@@ -12,16 +12,25 @@ namespace WebCamServer.Services
   {
     private readonly IMissingRepository _repo;
     private readonly IDetectIAService _detectIAServ;
+    private readonly IGrpcClient _grpcClient;
     private readonly IFileService _fileServ;
     private readonly IFoundVideoRepository _foundRepo;
     private readonly IMapper _mapper;
-    public MissingService(IMissingRepository repo, IMapper mapper, IDetectIAService detectIAServ, IFileService fileServ, IFoundVideoRepository foundRepo)
+    public MissingService(
+      IMissingRepository repo, 
+      IMapper mapper, 
+      IDetectIAService detectIAServ, 
+      IFileService fileServ, 
+      IFoundVideoRepository foundRepo,
+      IGrpcClient grpcClient
+    )
     {
       _repo = repo;
       _mapper = mapper;
       _detectIAServ = detectIAServ;
       _fileServ = fileServ;
       _foundRepo = foundRepo;
+      _grpcClient = grpcClient;
     }
     public async Task<bool> UpdatePhotosMissing(int missingId, MissingPhotosType type)
     {
@@ -69,8 +78,8 @@ namespace WebCamServer.Services
         string[] files = Directory.GetFiles(pathPhotos);
         foreach (var file in files)
         {
-          string result = await _detectIAServ.DetectFacePose(file);
-          Console.WriteLine(result);
+          string result = await _grpcClient.DetectFacePose(file);
+          Console.WriteLine($"Resultado: {result}");
           if(result != file_type) return false; 
         }
       }
@@ -204,6 +213,7 @@ namespace WebCamServer.Services
 
         _ = Task.Run(async () =>
         {
+          Console.WriteLine("Se esta ejcutando la tarea en segundo plano");
           try
           {
             await SearchMissingInRegisters(Path.Combine(path_missing,$"missing_{missingId}.keras" ), missingId);

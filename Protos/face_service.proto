@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "WebCamServer.Protos";
+
+service FaceService {
+  rpc DetectFacePose (DetectFaceRequest) returns (DetectFaceResponse);
+}
+
+// SERVICE DETECT FACE
+
+message DetectFaceRequest {
+  string image_path = 1;
+}
+
+message DetectFaceResponse {
+  string result = 1;
+}

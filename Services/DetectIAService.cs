@@ -98,8 +98,6 @@ namespace WebCamServer.Services
       }
     }
 
-    
-
     public List<FaceDetection> PredictFaceMultiple(string folder_path, string path_model)
     {
       string scriptPath = Path.Combine(
