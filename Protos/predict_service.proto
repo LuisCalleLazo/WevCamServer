@@ -26,7 +26,7 @@ message PredictFaceRequest {
 }
 
 message PredictFaceResponse {
-  string result = 1;
+  int32 result = 1;
 }
 
 
